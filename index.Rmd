@@ -2,7 +2,6 @@
 title: "The Constitution of The Saturated Unicorn"
 author: "Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn"
 date: "`r Sys.Date()`"
-output_dir: "docs"
 bibliography:
 - book.bib
 - packages.bib
