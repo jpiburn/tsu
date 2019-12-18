@@ -1,0 +1,19 @@
+--- 
+title: "The Constitution of The Saturated Unicorn"
+author: "Noah Newport & Jesse Piburn"
+date: "`r Sys.Date()`"
+bibliography:
+- book.bib
+- packages.bib
+description: This document represents the rules, bylaws, and moral guidance of TSU
+documentclass: book
+link-citations: yes
+site: bookdown::bookdown_site
+biblio-style: apalike
+---
+
+# The Constitution of The Saturated Unicorn {-}
+
+```{r, out.width="100%", echo=FALSE}
+knitr::include_graphics("images/tsu-logo.png")
+```

@@ -1,0 +1,48 @@
+# Team Roster & Lineup
+
+## Roster & Lineup
+
+### Each team consists of `r roster_spots` roster spots and will submit a valid lineup each week of the regular and postseason that consists of `r sum(lineup$starting_spots)` starting players.
+
+#### A valid starting lineup consists of the following
+    
+#### The only exception to this rule is benching a player to ensure a win for your team.
+    
+##### For example your opponent's team is done and you are winning by 1 point with only your kicker left to play. It is acceptable to bench your kicker to guarantee a win.
+    
+### There will not be a limit to the number of players at each position a team can have on their roster.
+
+### Limitations will not be placed on the “drop player” status for any players.
+
+```{r, echo=FALSE, out.width= "50%"}
+lineup %>%
+  knitr::kable(
+    caption = "A Valid Starting Lineup",
+    booktabs = TRUE
+    )
+
+```    
+
+
+
+
+## Injured Reserve Slot
+
+### Each team will have `r ir_spots` IR slot separate from their roster that may only be filled by a player designated by the host platform to be IR eligible.
+
+#### This will not count against a teams `r roster_spots`-man roster
+
+## Submitting Weekly Roster
+
+### Individual players on a team roster will be locked in at the start of each player’s game.
+
+### If an owner wishes to make a lineup change and is physically unable to do so they may contact the commissioner to make the changes for them.
+
+#### All calls to the commissioner must be made prior to lineup locks and cannot be undone once submitted by the commissioner.
+  
+##### If the commissioner is unavailable during this time the LOC will make the changes.
+##### Both the Commissioner and LOC must notify the league of the adjustment(s), via the official TSU group message, prior to final submittal.
+      
+###### Text message is an acceptable form of communication and the recipient does not need to respond.
+          
+#### The commissioner or LOC are not responsible for guaranteeing changes.

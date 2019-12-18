@@ -1,0 +1,80 @@
+# The Draft
+
+## Draft Day & Location
+
+### The `r current_season` draft will be held on `r draft_day`
+
+### The location of the `r current_season` draft is `r draft_location`
+
+#### `r draft_host` is the 2019 draft host.
+
+### The commissioner will be responsible for purchasing and providing the official draft board and stickers for each season’s draft.
+
+### Each team owner is responsible for paying 1/`r nrow(current_members)` of each years draft cost, even if they are not able to attend the draft. By paying 1/`r nrow(current_members)` each league owner is eligible to bring a +1 do the draft without extra cost.
+
+#### The only exception to this will be the “special occasion drafts” where the league plans to book trips that are on an individual booking basis. Example - The 10 year all-inclusive draft.
+
+#### League members who are not able to attend a draft (highly discouraged) will not be responsible for peripheral draft costs such as: boat rental, special excursions, lube, male strippers, hospital bills, etc.
+
+
+## The Draft & Draft Order
+
+### The Saturated Unicorn Draft will be a full auction format starting in 2019. Each team will auction `r roster_spots` players to fill their roster
+
+#### The nomination order will NOT be a snake format. Meaning that the nomination order will resest after the `r nrow(current_members)`th nomination is made.
+
+#### Ex. - The first player to nominate a player will also nominate the `r nrow(current_members) + 1`th player
+
+### The nomination order will be determined by team owners randomly selecting cards from a standard deck of playing cards.
+
+#### The cards will be 2-Ace (Ace being high) from a single suit of a standard deck of playing cards. (One card will remain after selections are made.)
+
+#### The team that selects the card of the highest value will have the 1st nomination and team with the card of the lowest value will have the `r nrow(current_members)`th nomination.
+
+### The nomination order will be set the night prior to the draft at a time of the commissioners choosing.
+
+## Auction Budget & Bidding
+
+### The auction budget will be $`r auction_budget`
+
+#### The maximum bid a bidder could make for a player would $$bid_{max} = budget_{remaining} - (bid_{min}(spots_{remaining} - 1))$$Basically, you need to have at least $`r min_bid` left for every empty roster spot.
+
+##### For example, assuming an auction budget of $`r auction_budget`, a minimum bid of $`r min_bid`, and `r roster_spots` total roster spots, the most Chappy could ever pay for a player is $`r auction_budget - (min_bid * (roster_spots-1))`. This would leave enough for `r roster_spots - 1` $`r min_bid` bids. 
+
+### All teams must auction `r nrow(current_members)` players during the auction portion of the draft.
+
+#### When a player is nominated for auction, the person who nominated the player automatically places a $`r min_bid` bid on the player.
+
+#### When a player is nominated the nominating person can set the minimum bid at any amount they wish - as long as that amount is within their remaining budget and does not exceed their maximum potential bid.
+
+#### Once a an owner has auction drafted `r roster_spots` players they will not be allowed to nominate players for auction. Their turn will go to the next person in order who has not filled out a complete roster of `r roster_spots` players.
+
+## Overbidding
+
+### If a team owner places a bid that exceeds their maximum remaining budget they will be fined $1 FAAB for the first offense and $10 FAAB for every instance thereafter. This fine is levied on the owners in-season FAAB Budget, not against the auction budget.
+
+#### This applies to winning a player as well as overbidding ones budget during the active auction of a player. i.e. - If you have $50 remaining in your available budget and bidding for DeAndre Hopkins is at $51 you can’t place a bid. If you do, bidding will pause, your regular season FAAB fine will be recorded, and bidding will restart at the last legal bid prior to the first illegal bid - if that bid is known. If the last legal bid is not known or if the illegal bid is not initially noticed but is later noticed during active bidding of the same player, the auction will pause, the FAAB penalty will be recorded and bidding will restart for that particular player at $`r min_bid`
+
+### If an owner overbids on a player that they nominated and bidding completely restarts the player will be re-nominated at $0 and the nominating owner shall then not be allowed bid on this player during that re-bidding round. If none of the eligible owners place a bid on that player, the player in question returns to the undrafted pool and remains auction eligible by all owners, including the owner that committed the overbidding infraction, to be nominated by the standard nomination process outline above.
+
+
+## Draft Day Requirements
+
+### Each team is required to draft a complete roster during the draft.
+
+#### During the course of the draft each team must draft enough players to fill out a complete starting lineup
+
+#### The remaining bench players can be of any position combination
+
+### Failure to abide by these requirements of the draft will result in a $10 FAAB penalty for each position that is not drafted. 
+
+#### Ex. - If Jesse fails to draft a kicker, he will be penalized $10 FAAB before the start of week 1 of the `r current_season` season. If he fails to draft a kicker and a quarterback he will be penalized $20 FAAB for the `r current_season` season, the maximum fine would be $80 FAAB
+
+
+### Failing to be present at the mandatory TSU draft
+
+#### If full payment has been received
+##### A person will be nominated to draft your team for you. You will not be allowed to Skype, speaker phone or any other type of method that isn’t a physical presence at the draft.
+
+#### If full payment is not received
+##### You will forfeit your position in the league and a replacement owner will take your spot.

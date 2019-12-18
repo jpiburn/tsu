@@ -1,0 +1,99 @@
+
+# Power of Authority
+
+
+
+## The Commissioner
+
+### The Saturated Unicorn (TSU) will have one league commissioner who, once appointed,will remain in office until: 1. Death 2. Retirement 3. Impeachment or 4.Imprisonment.
+    
+#### If a vacant office does occur, a new commissioner will be appointed by popular vote of the league.
+##### Candidates for commissioner must be an active member of the Senior Council.
+
+#### Imprisonment is applicable here when the sentence being served, or to be served, exceeds the length of a single season of TSU.
+##### In the case in which the current commissioner is incarcerated, but it does not exceed the length of a single season, the LOC will take over all commissioner duties until our lil homie is on the streets again _#FreeCommish_
+    
+#### Impeachment can only be determined by a unanimous vote of the league.
+##### Sleeping with franchise owner(s) is not grounds for impeachment – unless collusion is proven.
+        
+### Current TSU Commissioner - `r current_commish` 
+
+### Any issue, dispute, or grievance not explicitly stated herein to be voted on by the Senior Council will solely lie within the jurisdiction of the Commissioner. All decisions made by the commissioner are final.
+
+### Any dispute or decision directly involving the commissioner will be dealt with by a majority vote of the Senior Council.
+
+### Any non-unanimous vote of the Senior Council must be approved by the Commissioner.
+
+### The commissioner holds an unquestioned power to overrule or rule on any decision or issue he/she deems necessary for intervention or final decision.
+
+#### This is a power that the Commissioner shall only use in the most extreme of circumstances. Such circumstances cannot yet be forecasted or expected but even the “Land of the Free” has Martial Law.
+
+### Any issue between the commissioner and Lord of the Council needing approval or ruling will be handled via the following process
+    
+#### If the approval or ruling would, under normal circumstances, fall within the jurisdiction of the Commissioner then the Lord of The Council will act as commissioner and make a final decision on the matter.
+    
+#### If the approval or ruling would, under normal circumstances, fall within the jurisdiction of the Senior Council, the alternate Senior Council member will be asked to act as the third voting member of the Senior Council for the issue at hand.
+    
+#### The presiding Senior Council member must not be involved in the matter at hand.
+
+## The Senior Council
+
+### The Senior Council will consist of three senior members of the league, excluding the commissioner and will be led by the Lord of the Council (LOC).
+
+#### The current Senior Council
+##### `r lord_of_the_council` (LOC) {-}
+##### `r senior_council_1` {-}
+##### `r senior_council_2` {-}
+##### `r senior_council_alt` {-}
+
+
+### The alternate Senior Council member shall not have any special powers under normal league conditions. The alternate is to only be used when the commissioner and/or a Senior Council member(s) are involved in an issue that requires a deciding vote of the Senior Council or a member of the Senior Council cannot adequately fulfill their role for a period of time.
+
+#### The commissioner shall notify the Senior Council, as well as the Alternate Senior Council member, when the Alternate has been activated.
+##### The commissioner will be responsible for explaining the circumstances that have led to the Alternate being activated.
+
+### Senior Council membership is a lifetime appointment (lifetime of active participation in the league). The same parameters for vacating office, outlined for the Commissioner in Article I Section 1, will apply to Senior Council members.
+
+### If a vacancy occurs in the Senior Council the remaining Senior Council members and the Commissioner will take a vote to nominate a new member.
+
+#### The alternate will not automatically become the new full-time member of the Senior Council.
+    
+### All disputes, alterations, malfunctions, or questions stated to be within the jurisdiction of the Senior Council herein this document will be voted on and approved with by a majority vote of the Senior Council.
+
+### Any time “proven” is stated within this document, this can be understood as meaning solid proof was supplied to and reviewed by the entire Senior Council and a majority vote ruled in favor of the issue supported, by said evidence.
+
+### If a conflict of interest exists for a member or members of The Senior Council on a issue necessary for a Senior Council vote or ruling, the following procedure will be followed to replace the member(s) until the issue is resolved
+
+#### Once a conflict of interest is noticed, the involved member of the Senior Council will refrain from participating in all discussions and vote(s) related to the issue at hand.
+    
+#### Their position will be temporarily filled by the Alternate Senior Council member.
+    
+##### If the Alternate Senior Council Member was deemed to also have a conflict of interest then the most senior member remaining would fill in.
+##### Members with the same amount of seniority will be placed in alphabetical order of their last names and a rotation will start with those members (the name appearing first alphabetically will be first) and will restart once the name appearing last alphabetically serves. 
+##### A member will be skipped in their rotation if they also have a conflict of interest with the issue being resolved by The Senior Council.
+##### Members who have not gained TSU tenure will not be allowed to participate as a temporary voting member of The Senior Council.
+##### List of seniority (excluding The Commissioner and current Senior Council members): 
+
+```{r, echo=FALSE, out.width= "50%"}
+current_members %>% 
+  filter(is.na(role)) %>%
+  arrange(-seasons) %>%
+  select(name, seasons) %>%
+  knitr::kable(
+    caption = "Member Seniority excluding the Commissioner and current Senior Council members",
+    booktabs = TRUE
+    )
+
+```
+
+            
+## Lord of the Council
+
+### The Lord of the Council shall not have any special powers or privileges under normal conditions but shall
+
+#### Act as Commissioner if the appointed commissioner is unable to adequately fulfill his or her obligations for any duration of time.
+#### Will remain as acting commissioner until the appointed commissioner returns or until the season, including playoffs, has concluded.
+#### Make roster changes when notified by another franchise owner.
+##### May only do so if the Commissioner is not available for immediate contact and must notify another franchise owner before making alterations to team roster.
+        
+### Issues that are determined to be a conflict of interest for the Commissioner will be handled by the Lord of the Council with equal powers to that of the Commissioner.

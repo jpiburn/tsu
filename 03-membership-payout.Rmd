@@ -1,0 +1,88 @@
+# Membership & Payout
+
+## Teams & Platform
+
+### TSU consists of `r nrow(current_members)` teams, no more no less
+
+#### Changes in the number of teams can only be made in the off season and the change must be voted on and approved via a 2/3 vote of all eligible league members.
+    
+### A fan of Alabama, Florida, or Ohio State shall never be permitted entry into TSU.
+
+### TSU will forever be an ESPN league unless a majority league vote decides to move to another host.
+
+## Dues & Entry Fees
+
+### The cost of entry for the `r current_season` season will be $`r entry_fee`
+    
+#### Week 17 has no impact on the championship as it is played in weeks 15 & 16
+    
+### All monies must be paid before the draft order is set
+
+#### All entries must be paid by `r entry_fee_due_date`
+  
+#### If monies are not received by this date you will not be in the league.
+  
+#### All entries shall be sent to <saturatedunicornffl@gmail.com> via Google Pay
+    
+### All monies will be paid to the commissioner and he/she will be responsible for holding the money until the conclusion of the season.
+
+### In season, all monies shall be kept in the official TSU bank account
+
+### Weekly payouts will be made at the conclusion of the season.
+
+#### NO advances on monies won during the season will be granted.
+    
+
+## Payout
+
+### The total prize money for the `r current_season` season will be $`r sum(payouts$payout_total)` and will be distributed as follows
+
+```{r, echo=FALSE, out.width= "50%"}
+payouts %>%
+  select(
+    payout,
+    amount,
+    note
+  ) %>%
+  knitr::kable(
+    caption = "League Payouts",
+    booktabs = TRUE
+    )
+
+```
+
+## Trophy
+
+### The name of the league champion will be engraved onto the trophy at the conclusion of each season.
+
+#### The commissioner will be responsible for acquiring and paying for the nameplate.
+    
+### If the league champion lives outside of Knoxville it will be their sole responsibility to arrange for trophy pickup.
+
+### In the event the league champion is unable to make an appearance the trophy must be present at the following year’s draft!
+
+### The last place finisher of the previous season MUST be present at the following year’s draft (if they are still a member of TSU)
+
+
+## The Randy
+
+### The Randy will be awarded to the team finishing in `r nrow(current_members)`th (last) place of the playoff structure.
+
+### Once contracted, The Randy must be openly displayed in the recipient’s home. Failure to do so will result in penalty determined by the league commissioner.
+
+### The Randy must also be worn for the entirety of the following season’s draft.
+
+#### Entirety means the loser will wear The Randy from the official start of the draft until the official closing of the draft (if still a member).
+
+#### The commissioner will announce the opening and closing of the draft.
+    
+### The recipient must print their name, team name, and season contracted on The Randy.
+
+### Failure to adorn The Randy at the following years draft will lead to an automatic expulsion from the league.
+
+
+### The only way a person infected with The Randy can remain an active member of TSU and not adorn The Randy at the following years draft, is for a fellow member to volunteer as a sacrifice in the infected persons place.
+
+#### If a league member steps in as a volunteer their responsibility and expectations will be no different than if they had contracted The Randy on their own merit.
+        
+##### This responsibility only pertains to draft day. A volunteer cannot take full possession of The Randy, ownership and display responsibilities will remain with the true owner.

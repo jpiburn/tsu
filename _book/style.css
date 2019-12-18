@@ -1,0 +1,38 @@
+
+p.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+h3 {
+  font-style: normal;
+  font-weight: lighter;
+}
+
+h4 {
+  padding-left: 5%;
+  font-style: normal;
+  font-weight: lighter;
+}
+
+h5 {
+  padding-left: 10%;
+  font-style: normal;
+  font-weight: lighter;
+}
+
+h6 {
+  padding-left: 15%;
+  font-style: normal;
+  font-weight: lighter;
+}
