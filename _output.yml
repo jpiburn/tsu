@@ -3,7 +3,7 @@ bookdown::gitbook:
   config:
     fontsettings:
       size: 1
-    toc-depth: 2
+    toc_depth: 2
     toc:
       before: |
         <li><a href="./">TSU Constitution</a></li>
