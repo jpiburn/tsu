@@ -1,11 +1,13 @@
 bookdown::gitbook:
   css: style.css
   config:
+    fontsettings:
+      size: 1
+    toc-depth: 2
     toc:
       before: |
         <li><a href="./">TSU Constitution</a></li>
-      after: |
-        <li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+      after: null
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
