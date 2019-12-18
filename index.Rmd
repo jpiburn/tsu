@@ -1,5 +1,5 @@
 --- 
-title: "The Constitution of The Saturated Unicorn"
+title: null
 author: "Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn"
 date: "`r Sys.Date()`"
 bibliography:
@@ -12,6 +12,8 @@ site: bookdown::bookdown_site
 biblio-style: apalike
 ---
 
-```{r, out.width="100%", echo=FALSE}
+# The Constitution of The Saturated Unicorn {-}
+
+```{r, out.width="90%", echo=FALSE}
 knitr::include_graphics("images/tsu-logo.png")
 ```
