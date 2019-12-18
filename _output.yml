@@ -7,7 +7,7 @@ bookdown::gitbook:
     toc:
       before: |
         <li><a href="./">TSU Constitution</a></li>
-      after: null
+      after: |
     download: ["pdf", "epub"]
 bookdown::pdf_book:
   includes:
