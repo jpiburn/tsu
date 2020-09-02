@@ -50,7 +50,7 @@ knitr::include_graphics("images/tsu-playoffs.png")
 #### Round 2 of the playoffs (week 14) will be a single elimination game for all remaining seeds in the winner’s bracket. 
 
 #### Highest scoring loser in Round 2 of the playoffs (week 14) will move into the 3rd place matchup.
-##### If the two losing teams in Round 2 of the playoffs scored the same total points in week 14. Total cumulative points for weeks 13 and 14 will be used to break the tie.
+##### If the two losing teams in Round 2 of the playoffs scored the same total points in week 14. The team with the highest playoff seeding will advance to the 3rd place matchup
 
 #### The lowest scoring loser in Round 2 of the playoffs does not drop into the loser's bracket and is locked in at finishing 5th overall
 
