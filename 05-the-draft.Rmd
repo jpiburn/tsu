@@ -6,7 +6,7 @@
 
 ### The location of the `r current_season` draft is `r draft_location`
 
-#### `r draft_host` is the 2019 draft host.
+#### `r draft_host` is the `r current_season` draft host.
 
 ### The commissioner will be responsible for purchasing and providing the official draft board and stickers for each season’s draft.
 

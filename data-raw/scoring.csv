@@ -1,0 +1,38 @@
+Category,Scoring Type,Points
+Passing,Every 1 passing yards,0.04
+Passing,TD Pass,4
+Passing,Interceptions Thrown,-2
+Passing,2pt Passing Conversion,2
+Rushing,Every 1 rushing yards,0.1
+Rushing,TD Rush,6
+Rushing,2pt Rushing Conversion,2
+Receiving,Every 1 receiving yards,0.1
+Receiving,Every 1 receptions,0.5
+Receiving,TD Reception,6
+Receiving,2pt Receiving Conversion,2
+Kicking,Each PAT made,1
+Kicking,Each PAT missed,-1
+Kicking,Each FG missed,-1
+Kicking,FG Made (0-39 yards),3
+Kicking,FG Made (40-49 yards),4
+Kicking,FG Made (50-59 yards),5
+Kicking,FG Made (60+ yards),6
+Defense / Special Teams,Team Defense Baseline,5
+Defense / Special Teams,Each Point Allowed,-0.25
+Defense / Special Teams,Every 1 sack,1
+Defense / Special Teams,"Blocked Punt, PAT or FG",2
+Defense / Special Teams,Each Interception,2
+Defense / Special Teams,Each Fumble Recovered,2
+Defense / Special Teams,Each Safety,2
+Defense / Special Teams,Interception Return TD,6
+Defense / Special Teams,Fumble Return TD,6
+Defense / Special Teams,Kickoff Return TD,6
+Defense / Special Teams,Punt Return TD,6
+Defense / Special Teams,Blocked Punt or FG return for TD,6
+Miscellaneous,Kickoff Return TD,6
+Miscellaneous,Punt Return TD,6
+Miscellaneous,Fumble Recovered for TD,6
+Miscellaneous,Interception Return TD,6
+Miscellaneous,Fumble Return TD,6
+Miscellaneous,Blocked Punt or FG return for TD,6
+Miscellaneous,Each Fumble Lost,-2

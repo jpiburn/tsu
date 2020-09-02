@@ -35,14 +35,13 @@
 
 ## Payout
 
-### The total prize money for the `r current_season` season will be $`r sum(payouts$payout_total)` and will be distributed as follows
+### The total prize money for the `r current_season` season will be $`r sum(payouts$total_amount)` and will be distributed as follows
 
 ```{r, echo=FALSE, out.width= "50%"}
 payouts %>%
   select(
     payout,
-    amount,
-    note
+    amount
   ) %>%
   knitr::kable(
     caption = "League Payouts",

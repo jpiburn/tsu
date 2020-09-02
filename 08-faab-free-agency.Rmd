@@ -1,5 +1,29 @@
 # FAAB & Free Agency {#free-agency}
 
-coming soon
-
 ## Free Agency Acquisition Budget (FAAB)
+
+
+### Players will become locked at the start of their respective game.
+
+### Each team will start the season with an annual budget of $`r faab_budget` minus any subtractions from penalties during the draft. This will be the ONLY FAAB money owners will have for the entire season, including playoffs. 
+
+### The weekly FAAB auction will be a silent auction with the player being awarded to the highest bidder.
+#### In the event of a tie the player will be awarded to the team with the lower total points scored for the season. 
+
+### The FAAB auction and the subsequent free agency period will follow the same timeline as ESPN standard leagues.
+#### FAAB bids can be submitted at any time but will not be processed until 3:00 a.m. EST Thursday morning.
+#### At 3:00 a.m. EST Thursday morning, players not bid on will be available for free agency pickup.
+#### Players selected from free agency will not count against a team’s FAAB budget.
+
+
+### The same process will be followed during the playoffs. Special priority will not be given to certain teams.
+
+#### Accidental player drop - If a team owner accidentally drops a player to waivers they may ask to have the player added back to their roster if the following conditions are met:
+##### There can not be any major news (news level up to commissioner's determination) involving the player within the 24 hour window
+##### The commissioner must be notified of the situation within 24 hours of the player being dropped
+
+
+#### The Senior Council must review and approve/veto each occurrence
+
+
+#### The team owner must pay $10 FAAB or, if they have less than $10 FAAB, subtract 2 points from that weeks total points scored.

@@ -42,7 +42,7 @@
 ##### `r lord_of_the_council` (LOC) {-}
 ##### `r senior_council_1` {-}
 ##### `r senior_council_2` {-}
-##### `r senior_council_alt` {-}
+##### `r paste(senior_council_alt, "(alternative)")` {-}
 
 
 ### The alternate Senior Council member shall not have any special powers under normal league conditions. The alternate is to only be used when the commissioner and/or a Senior Council member(s) are involved in an issue that requires a deciding vote of the Senior Council or a member of the Senior Council cannot adequately fulfill their role for a period of time.
@@ -75,6 +75,9 @@
 ```{r, echo=FALSE, out.width= "50%"}
 current_members %>% 
   filter(is.na(role)) %>%
+  mutate(
+    seasons = ((current_season - first_season) + 1) - seasons_missed
+  ) %>%
   arrange(-seasons) %>%
   select(name, seasons) %>%
   knitr::kable(

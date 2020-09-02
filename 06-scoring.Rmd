@@ -1,12 +1,39 @@
 # Scoring
 
-coming soon
-
-
 ## Scoring Format
+
+### TSU shall use the decimal system of scoring rounded to the hundredths decimal value.
+
+### Each player shall receive 0.50 points for every one (1) reception that said player accrued during a game, regardless of their position.
+
+### Unless noted, all point values are equal to ESPN Standard Decimal Scoring.
 
 
 ## Scoring Categories
 
+### All scoring shall be divided into the following categorie
+
+1. Passing
+1. Rushing
+1. Receiving
+1. Miscellaneous Offense
+1. Kicking
+1. Defense/Special Teams
 
 ## Point Values
+
+### Below is an exhaustive list of all scoring categories, each scoring action and their corresponding point values.
+
+### While scoring with another team owner’s mother is highly encouraged, no points shall be awarded.
+
+```{r scoring, echo=FALSE, message=FALSE, warning=FALSE}
+library(reactable)
+library(tidyverse)
+
+d <- read_csv("data-raw/scoring.csv") 
+
+reactable(
+  d,
+  groupBy = 'Category'
+)
+```
