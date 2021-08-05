@@ -1,38 +1,57 @@
-\documentclass[]{book}
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{book}
+\usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{amssymb,amsmath}
 \usepackage{ifxetex,ifluatex}
-\usepackage{fixltx2e} % provides \textsubscript
 \ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
-\else % if luatex or xelatex
-  \ifxetex
-    \usepackage{mathspec}
-  \else
-    \usepackage{fontspec}
-  \fi
-  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
 \fi
-% use upquote if available, for straight quotes in verbatim environments
+% Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
-% use microtype if available
-\IfFileExists{microtype.sty}{%
-\usepackage{microtype}
-\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
 }{}
-\usepackage[margin=1in]{geometry}
-\usepackage{hyperref}
-\hypersetup{unicode=true,
-            pdftitle={The Constitution of The Saturated Unicorn},
-            pdfauthor={Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn},
-            pdfborder={0 0 0},
-            breaklinks=true}
-\urlstyle{same}  % don't use monospace font for urls
-\usepackage{natbib}
-\bibliographystyle{apalike}
-\usepackage{longtable,booktabs}
-\usepackage{graphicx,grffile}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={The Constitution of The Saturated Unicorn},
+  pdfauthor={Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage{longtable,booktabs,array}
+\usepackage{calc} % for calculating minipage widths
+% Correct order of tables after \paragraph or \subparagraph
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd\longtable{\par}{\if@noskipsec\mbox{}\fi\par}{}{}
+\makeatother
+% Allow footnotes in longtable head/foot
+\IfFileExists{footnotehyper.sty}{\usepackage{footnotehyper}}{\usepackage{footnote}}
+\makesavenoteenv{longtable}
+\usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
 \def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
@@ -41,53 +60,24 @@
 % margins by default, and it is still possible to overwrite the defaults
 % using explicit options in \includegraphics[width, height, ...]{}
 \setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
-\IfFileExists{parskip.sty}{%
-\usepackage{parskip}
-}{% else
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{6pt plus 2pt minus 1pt}
-}
-\setlength{\emergencystretch}{3em}  % prevent overfull lines
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
-% Redefines (sub)paragraphs to behave more like sections
-\ifx\paragraph\undefined\else
-\let\oldparagraph\paragraph
-\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
-\fi
-\ifx\subparagraph\undefined\else
-\let\oldsubparagraph\subparagraph
-\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
-\fi
-
-%%% Use protect on footnotes to avoid problems with footnotes in titles
-\let\rmarkdownfootnote\footnote%
-\def\footnote{\protect\rmarkdownfootnote}
-
-%%% Change title format to be more compact
-\usepackage{titling}
-
-% Create subtitle command for use in maketitle
-\providecommand{\subtitle}[1]{
-  \posttitle{
-    \begin{center}\large#1\end{center}
-    }
-}
-
-\setlength{\droptitle}{-2em}
-
-  \title{The Constitution of The Saturated Unicorn}
-    \pretitle{\vspace{\droptitle}\centering\huge}
-  \posttitle{\par}
-    \author{Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn}
-    \preauthor{\centering\large\emph}
-  \postauthor{\par}
-      \predate{\centering\large\emph}
-  \postdate{\par}
-    \date{2019-12-18}
-
 \usepackage{booktabs}
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage[]{natbib}
+\bibliographystyle{apalike}
+
+\title{The Constitution of The Saturated Unicorn}
+\author{Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn}
+\date{2021-08-05}
 
 \begin{document}
 \maketitle
@@ -100,7 +90,7 @@
 \chapter*{The Constitution of The Saturated Unicorn}\label{the-constitution-of-the-saturated-unicorn}}
 \addcontentsline{toc}{chapter}{The Constitution of The Saturated Unicorn}
 
-\includegraphics[width=1\linewidth]{images/tsu-logo}
+\includegraphics[width=0.9\linewidth]{images/tsu-logo}
 
 \hypertarget{power-of-authority}{%
 \chapter{Power of Authority}\label{power-of-authority}}
@@ -169,20 +159,20 @@
 \subsubsection{The current Senior Council}\label{the-current-senior-council}}
 
 \hypertarget{jesse-piburn-loc}{%
-\paragraph{Jesse Piburn (LOC)}\label{jesse-piburn-loc}}
+\paragraph*{Jesse Piburn (LOC)}\label{jesse-piburn-loc}}
 \addcontentsline{toc}{paragraph}{Jesse Piburn (LOC)}
 
 \hypertarget{brack-brown}{%
-\paragraph{Brack Brown}\label{brack-brown}}
+\paragraph*{Brack Brown}\label{brack-brown}}
 \addcontentsline{toc}{paragraph}{Brack Brown}
 
 \hypertarget{miles-collins}{%
-\paragraph{Miles Collins}\label{miles-collins}}
+\paragraph*{Miles Collins}\label{miles-collins}}
 \addcontentsline{toc}{paragraph}{Miles Collins}
 
-\hypertarget{jordan-rudolph}{%
-\paragraph{Jordan Rudolph}\label{jordan-rudolph}}
-\addcontentsline{toc}{paragraph}{Jordan Rudolph}
+\hypertarget{jordan-rudolph-alternative}{%
+\paragraph*{Jordan Rudolph (alternative)}\label{jordan-rudolph-alternative}}
+\addcontentsline{toc}{paragraph}{Jordan Rudolph (alternative)}
 
 \hypertarget{the-alternate-senior-council-member-shall-not-have-any-special-powers-under-normal-league-conditions.-the-alternate-is-to-only-be-used-when-the-commissioner-andor-a-senior-council-members-are-involved-in-an-issue-that-requires-a-deciding-vote-of-the-senior-council-or-a-member-of-the-senior-council-cannot-adequately-fulfill-their-role-for-a-period-of-time.}{%
 \subsection{The alternate Senior Council member shall not have any special powers under normal league conditions. The alternate is to only be used when the commissioner and/or a Senior Council member(s) are involved in an issue that requires a deciding vote of the Senior Council or a member of the Senior Council cannot adequately fulfill their role for a period of time.}\label{the-alternate-senior-council-member-shall-not-have-any-special-powers-under-normal-league-conditions.-the-alternate-is-to-only-be-used-when-the-commissioner-andor-a-senior-council-members-are-involved-in-an-issue-that-requires-a-deciding-vote-of-the-senior-council-or-a-member-of-the-senior-council-cannot-adequately-fulfill-their-role-for-a-period-of-time.}}
@@ -232,22 +222,22 @@
 \hypertarget{list-of-seniority-excluding-the-commissioner-and-current-senior-council-members}{%
 \paragraph{List of seniority (excluding The Commissioner and current Senior Council members):}\label{list-of-seniority-excluding-the-commissioner-and-current-senior-council-members}}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-4}Member Seniority excluding the Commissioner and current Senior Council members}
 \centering
-\begin{tabular}{lr}
+\begin{tabular}[t]{lr}
 \toprule
 name & seasons\\
 \midrule
-Jillian Newport & 8\\
-Eric White & 7\\
-Christian de Caestecker & 5\\
-Chappy & 5\\
-Jon Hawker & 4\\
+Jillian Newport & 10\\
+Eric White & 9\\
+Christian de Caestecker & 7\\
+Chappy & 7\\
+Jon Hawker & 6\\
 \addlinespace
-Mathew Stinnett & 4\\
-Britt Elmore & 2\\
+Mathew Stinnett & 6\\
+Britt Elmore & 4\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -360,8 +350,8 @@ Britt Elmore & 2\\
 \hypertarget{dues-entry-fees}{%
 \section{Dues \& Entry Fees}\label{dues-entry-fees}}
 
-\hypertarget{the-cost-of-entry-for-the-2019-season-will-be-140}{%
-\subsection{The cost of entry for the 2019 season will be \$140}\label{the-cost-of-entry-for-the-2019-season-will-be-140}}
+\hypertarget{the-cost-of-entry-for-the-2021-season-will-be-215}{%
+\subsection{The cost of entry for the 2021 season will be \$215}\label{the-cost-of-entry-for-the-2021-season-will-be-215}}
 
 \hypertarget{week-17-has-no-impact-on-the-championship-as-it-is-played-in-weeks-15-16}{%
 \subsubsection{Week 17 has no impact on the championship as it is played in weeks 15 \& 16}\label{week-17-has-no-impact-on-the-championship-as-it-is-played-in-weeks-15-16}}
@@ -369,8 +359,8 @@ Britt Elmore & 2\\
 \hypertarget{all-monies-must-be-paid-before-the-draft-order-is-set}{%
 \subsection{All monies must be paid before the draft order is set}\label{all-monies-must-be-paid-before-the-draft-order-is-set}}
 
-\hypertarget{all-entries-must-be-paid-by-august-232019}{%
-\subsubsection{All entries must be paid by August 23,2019}\label{all-entries-must-be-paid-by-august-232019}}
+\hypertarget{all-entries-must-be-paid-by-sept-12021}{%
+\subsubsection{All entries must be paid by Sept 1,2021}\label{all-entries-must-be-paid-by-sept-12021}}
 
 \hypertarget{if-monies-are-not-received-by-this-date-you-will-not-be-in-the-league.}{%
 \subsubsection{If monies are not received by this date you will not be in the league.}\label{if-monies-are-not-received-by-this-date-you-will-not-be-in-the-league.}}
@@ -393,28 +383,27 @@ Britt Elmore & 2\\
 \hypertarget{payout}{%
 \section{Payout}\label{payout}}
 
-\hypertarget{the-total-prize-money-for-the-2019-season-will-be-1680-and-will-be-distributed-as-follows}{%
-\subsection{The total prize money for the 2019 season will be \$1680 and will be distributed as follows}\label{the-total-prize-money-for-the-2019-season-will-be-1680-and-will-be-distributed-as-follows}}
+\hypertarget{the-total-prize-money-for-the-2021-season-will-be-2580-and-will-be-distributed-as-follows}{%
+\subsection{The total prize money for the 2021 season will be \$2580 and will be distributed as follows}\label{the-total-prize-money-for-the-2021-season-will-be-2580-and-will-be-distributed-as-follows}}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-7}League Payouts}
 \centering
-\begin{tabular}{lrl}
+\begin{tabular}[t]{lr}
 \toprule
-payout & amount & note\\
+payout & amount\\
 \midrule
-1st Place & 650 & \\
-2nd Place & 300 & \\
-3rd Place & 140 & \\
-4th Place & 50 & \\
-1 v 2 Week 13 Showdown Winner & 50 & \\
+1st Place & 1000\\
+2nd Place & 500\\
+3rd Place & 200\\
+1v2 Showdown & 50\\
+Weekly High Score (regular season) & 50\\
 \addlinespace
-Weekly High Score & 20 & per week, regular season only\\
-Most Cumulative Points & 60 & regular season only\\
-Most Cumulative Points Against & 25 & regular season only\\
-Highest Single Week Point Total & 25 & all season, including playoffs and week 17\\
-Week 17 High Score & 140 & \\
+Top Week on the Season (including playoffs and week 18) & 50\\
+Most Points For (regular season) & 60\\
+Most Points Against (regular season) & 20\\
+Week 18 High Score & 100\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -494,11 +483,11 @@ Week 17 High Score & 140 & \\
 \hypertarget{limitations-will-not-be-placed-on-the-drop-player-status-for-any-players.}{%
 \subsection{Limitations will not be placed on the ``drop player'' status for any players.}\label{limitations-will-not-be-placed-on-the-drop-player-status-for-any-players.}}
 
-\begin{table}[t]
+\begin{table}
 
 \caption{\label{tab:unnamed-chunk-9}A Valid Starting Lineup}
 \centering
-\begin{tabular}{lr}
+\begin{tabular}[t]{lr}
 \toprule
 position & starting\_spots\\
 \midrule
@@ -517,8 +506,8 @@ Kicker & 1\\
 \hypertarget{injured-reserve-slot}{%
 \section{Injured Reserve Slot}\label{injured-reserve-slot}}
 
-\hypertarget{each-team-will-have-1-ir-slot-separate-from-their-roster-that-may-only-be-filled-by-a-player-designated-by-the-host-platform-to-be-ir-eligible.}{%
-\subsection{Each team will have 1 IR slot separate from their roster that may only be filled by a player designated by the host platform to be IR eligible.}\label{each-team-will-have-1-ir-slot-separate-from-their-roster-that-may-only-be-filled-by-a-player-designated-by-the-host-platform-to-be-ir-eligible.}}
+\hypertarget{each-team-will-have-2-ir-slot-separate-from-their-roster-that-may-only-be-filled-by-a-player-designated-by-the-host-platform-to-be-ir-eligible.}{%
+\subsection{Each team will have 2 IR slot separate from their roster that may only be filled by a player designated by the host platform to be IR eligible.}\label{each-team-will-have-2-ir-slot-separate-from-their-roster-that-may-only-be-filled-by-a-player-designated-by-the-host-platform-to-be-ir-eligible.}}
 
 \hypertarget{this-will-not-count-against-a-teams-15-man-roster}{%
 \subsubsection{This will not count against a teams 15-man roster}\label{this-will-not-count-against-a-teams-15-man-roster}}
@@ -553,14 +542,14 @@ Kicker & 1\\
 \hypertarget{draft-day-location}{%
 \section{Draft Day \& Location}\label{draft-day-location}}
 
-\hypertarget{the-2019-draft-will-be-held-on-saturday-august-1st}{%
-\subsection{The 2019 draft will be held on Saturday, August 1st}\label{the-2019-draft-will-be-held-on-saturday-august-1st}}
+\hypertarget{the-2021-draft-will-be-held-on-tbd-when-in-costa-rica}{%
+\subsection{The 2021 draft will be held on TBD when in Costa Rica}\label{the-2021-draft-will-be-held-on-tbd-when-in-costa-rica}}
 
-\hypertarget{the-location-of-the-2019-draft-is-at-a-house-on-chickamauga-lake-in-decatur-tn}{%
-\subsection{The location of the 2019 draft is at a house on Chickamauga Lake in Decatur, TN}\label{the-location-of-the-2019-draft-is-at-a-house-on-chickamauga-lake-in-decatur-tn}}
+\hypertarget{the-location-of-the-2021-draft-is-5th-floor-of-a-mansion-in-the-rain-forest}{%
+\subsection{The location of the 2021 draft is 5th floor of a Mansion in the Rain Forest}\label{the-location-of-the-2021-draft-is-5th-floor-of-a-mansion-in-the-rain-forest}}
 
-\hypertarget{jordan-i-do-rudolph-is-the-2019-draft-host.}{%
-\subsubsection{Jordan ``I Do'' Rudolph is the 2019 draft host.}\label{jordan-i-do-rudolph-is-the-2019-draft-host.}}
+\hypertarget{the-beautiful-country-of-costa-rica-is-the-2021-draft-host.}{%
+\subsubsection{The Beautiful Country of Costa Rica is the 2021 draft host.}\label{the-beautiful-country-of-costa-rica-is-the-2021-draft-host.}}
 
 \hypertarget{the-commissioner-will-be-responsible-for-purchasing-and-providing-the-official-draft-board-and-stickers-for-each-seasons-draft.}{%
 \subsection{The commissioner will be responsible for purchasing and providing the official draft board and stickers for each season's draft.}\label{the-commissioner-will-be-responsible-for-purchasing-and-providing-the-official-draft-board-and-stickers-for-each-seasons-draft.}}
@@ -571,8 +560,8 @@ Kicker & 1\\
 \hypertarget{the-only-exception-to-this-will-be-the-special-occasion-drafts-where-the-league-plans-to-book-trips-that-are-on-an-individual-booking-basis.-example---the-10-year-all-inclusive-draft.}{%
 \subsubsection{The only exception to this will be the ``special occasion drafts'' where the league plans to book trips that are on an individual booking basis. Example - The 10 year all-inclusive draft.}\label{the-only-exception-to-this-will-be-the-special-occasion-drafts-where-the-league-plans-to-book-trips-that-are-on-an-individual-booking-basis.-example---the-10-year-all-inclusive-draft.}}
 
-\hypertarget{league-members-who-are-not-able-to-attend-a-draft-highly-discouraged-will-not-be-responsible-for-peripheral-draft-costs-such-as-boat-rental-special-excursions-lube-male-strippers-hospital-bills-etc.}{%
-\subsubsection{League members who are not able to attend a draft (highly discouraged) will not be responsible for peripheral draft costs such as: boat rental, special excursions, lube, male strippers, hospital bills, etc.}\label{league-members-who-are-not-able-to-attend-a-draft-highly-discouraged-will-not-be-responsible-for-peripheral-draft-costs-such-as-boat-rental-special-excursions-lube-male-strippers-hospital-bills-etc.}}
+\hypertarget{league-members-who-are-not-able-to-attend-a-draft-highly-discouraged-will-not-be-responsible-for-peripheral-draft-costs-such-as-boat-rental-special-excursions-hospital-bills-etc.}{%
+\subsubsection{League members who are not able to attend a draft (highly discouraged) will not be responsible for peripheral draft costs such as: boat rental, special excursions, hospital bills, etc.}\label{league-members-who-are-not-able-to-attend-a-draft-highly-discouraged-will-not-be-responsible-for-peripheral-draft-costs-such-as-boat-rental-special-excursions-hospital-bills-etc.}}
 
 \hypertarget{the-draft-draft-order}{%
 \section{The Draft \& Draft Order}\label{the-draft-draft-order}}
@@ -649,8 +638,8 @@ Kicker & 1\\
 \hypertarget{failure-to-abide-by-these-requirements-of-the-draft-will-result-in-a-10-faab-penalty-for-each-position-that-is-not-drafted.}{%
 \subsection{Failure to abide by these requirements of the draft will result in a \$10 FAAB penalty for each position that is not drafted.}\label{failure-to-abide-by-these-requirements-of-the-draft-will-result-in-a-10-faab-penalty-for-each-position-that-is-not-drafted.}}
 
-\hypertarget{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2019-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2019-season-the-maximum-fine-would-be-80-faab}{%
-\subsubsection{Ex. - If Jesse fails to draft a kicker, he will be penalized \$10 FAAB before the start of week 1 of the 2019 season. If he fails to draft a kicker and a quarterback he will be penalized \$20 FAAB for the 2019 season, the maximum fine would be \$80 FAAB}\label{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2019-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2019-season-the-maximum-fine-would-be-80-faab}}
+\hypertarget{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2021-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2021-season-the-maximum-fine-would-be-80-faab}{%
+\subsubsection{Ex. - If Jesse fails to draft a kicker, he will be penalized \$10 FAAB before the start of week 1 of the 2021 season. If he fails to draft a kicker and a quarterback he will be penalized \$20 FAAB for the 2021 season, the maximum fine would be \$80 FAAB}\label{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2021-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2021-season-the-maximum-fine-would-be-80-faab}}
 
 \hypertarget{failing-to-be-present-at-the-mandatory-tsu-draft}{%
 \subsection{Failing to be present at the mandatory TSU draft}\label{failing-to-be-present-at-the-mandatory-tsu-draft}}
@@ -670,83 +659,476 @@ Kicker & 1\\
 \hypertarget{scoring}{%
 \chapter{Scoring}\label{scoring}}
 
-coming soon
-
 \hypertarget{scoring-format}{%
 \section{Scoring Format}\label{scoring-format}}
+
+\hypertarget{tsu-shall-use-the-decimal-system-of-scoring-rounded-to-the-hundredths-decimal-value.}{%
+\subsection{TSU shall use the decimal system of scoring rounded to the hundredths decimal value.}\label{tsu-shall-use-the-decimal-system-of-scoring-rounded-to-the-hundredths-decimal-value.}}
+
+\hypertarget{each-player-shall-receive-0.50-points-for-every-one-1-reception-that-said-player-accrued-during-a-game-regardless-of-their-position.}{%
+\subsection{Each player shall receive 0.50 points for every one (1) reception that said player accrued during a game, regardless of their position.}\label{each-player-shall-receive-0.50-points-for-every-one-1-reception-that-said-player-accrued-during-a-game-regardless-of-their-position.}}
+
+\hypertarget{unless-noted-all-point-values-are-equal-to-espn-standard-decimal-scoring.}{%
+\subsection{Unless noted, all point values are equal to ESPN Standard Decimal Scoring.}\label{unless-noted-all-point-values-are-equal-to-espn-standard-decimal-scoring.}}
 
 \hypertarget{scoring-categories}{%
 \section{Scoring Categories}\label{scoring-categories}}
 
+\hypertarget{all-scoring-shall-be-divided-into-the-following-categorie}{%
+\subsection{All scoring shall be divided into the following categorie}\label{all-scoring-shall-be-divided-into-the-following-categorie}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Passing
+\item
+  Rushing
+\item
+  Receiving
+\item
+  Miscellaneous Offense
+\item
+  Kicking
+\item
+  Defense/Special Teams
+\end{enumerate}
+
 \hypertarget{point-values}{%
 \section{Point Values}\label{point-values}}
+
+\hypertarget{below-is-an-exhaustive-list-of-all-scoring-categories-each-scoring-action-and-their-corresponding-point-values.}{%
+\subsection{Below is an exhaustive list of all scoring categories, each scoring action and their corresponding point values.}\label{below-is-an-exhaustive-list-of-all-scoring-categories-each-scoring-action-and-their-corresponding-point-values.}}
+
+\hypertarget{while-scoring-with-another-team-owners-mother-is-highly-encouraged-no-points-shall-be-awarded.}{%
+\subsection{While scoring with another team owner's mother is highly encouraged, no points shall be awarded.}\label{while-scoring-with-another-team-owners-mother-is-highly-encouraged-no-points-shall-be-awarded.}}
 
 \hypertarget{ties}{%
 \chapter{Ties}\label{ties}}
 
-coming soon
-
 \hypertarget{weekly}{%
 \section{Weekly}\label{weekly}}
+
+\hypertarget{in-the-unlikely-event-of-a-head-to-head-weekly-tie-the-team-whose-kicker-scored-the-most-points-in-the-week-of-play-will-be-awarded-the-win.}{%
+\subsection{In the unlikely event of a head to head weekly tie, the team whose kicker scored the most points in the week of play will be awarded the win.}\label{in-the-unlikely-event-of-a-head-to-head-weekly-tie-the-team-whose-kicker-scored-the-most-points-in-the-week-of-play-will-be-awarded-the-win.}}
+
+\hypertarget{if-a-tie-remains-after-the-kicker-comparison-there-will-be-a-coin-toss-between-the-two-teams-to-determine-the-winner.}{%
+\subsection{If a tie remains after the kicker comparison there will be a coin toss between the two teams to determine the winner.}\label{if-a-tie-remains-after-the-kicker-comparison-there-will-be-a-coin-toss-between-the-two-teams-to-determine-the-winner.}}
+
+\hypertarget{the-toss-will-be-called-in-the-air-by-the-team-who-has-the-most-total-cumulative-points-for-the-season.}{%
+\subsubsection{The toss will be called in the air by the team who has the most total cumulative points for the season.}\label{the-toss-will-be-called-in-the-air-by-the-team-who-has-the-most-total-cumulative-points-for-the-season.}}
+
+\hypertarget{if-the-tie-happens-in-the-first-week-of-the-season-or-the-teams-have-the-same-amount-of-cumulative-points-the-team-with-the-lower-first-round-draft-pick-from-the-current-seasons-draft-will-make-the-in-air-call-of-the-coin.}{%
+\subsubsection{If the tie happens in the first week of the season or the teams have the same amount of cumulative points, the team with the lower first round draft pick from the current seasons draft will make the in-air call of the coin.}\label{if-the-tie-happens-in-the-first-week-of-the-season-or-the-teams-have-the-same-amount-of-cumulative-points-the-team-with-the-lower-first-round-draft-pick-from-the-current-seasons-draft-will-make-the-in-air-call-of-the-coin.}}
+
+\hypertarget{the-commissioner-will-toss-the-coin.}{%
+\subsubsection{The commissioner will toss the coin.}\label{the-commissioner-will-toss-the-coin.}}
+
+\hypertarget{the-coin-toss-will-be-at-a-location-of-the-commissioners-choosing-involved-parties-do-not-need-to-be-present-for-the-toss.-speakerphone-or-video-chat-will-be-used-for-communication-between-the-parties-and-the-commissioner.}{%
+\subsubsection{The coin toss will be at a location of the commissioners choosing; involved parties do not need to be present for the toss. Speakerphone or video chat will be used for communication between the parties and the commissioner.}\label{the-coin-toss-will-be-at-a-location-of-the-commissioners-choosing-involved-parties-do-not-need-to-be-present-for-the-toss.-speakerphone-or-video-chat-will-be-used-for-communication-between-the-parties-and-the-commissioner.}}
+
+\hypertarget{if-the-coin-lands-on-an-edge-and-the-tie-remains-there-will-be-a-fight-to-the-death-on-the-dawn-of-the-next-wednesday.}{%
+\subsection{If the coin lands on an edge and the tie remains, there will be a fight to the death on the dawn of the next Wednesday.}\label{if-the-coin-lands-on-an-edge-and-the-tie-remains-there-will-be-a-fight-to-the-death-on-the-dawn-of-the-next-wednesday.}}
+
+\hypertarget{a-new-team-owner-will-be-selected-to-manage-the-abandoned-team-via-the-procedures-outlined-in-this-document}{%
+\subsubsection{A new team owner will be selected to manage the abandoned team via the procedures outlined in this document}\label{a-new-team-owner-will-be-selected-to-manage-the-abandoned-team-via-the-procedures-outlined-in-this-document}}
 
 \hypertarget{end-of-season}{%
 \section{End of Season}\label{end-of-season}}
 
+\hypertarget{please-refer-to-the-playoffs-section-for-information-on-end-of-season-ties-between-two-or-more-teams.}{%
+\subsection{Please refer to the Playoffs section for information on end of season ties between two or more teams.}\label{please-refer-to-the-playoffs-section-for-information-on-end-of-season-ties-between-two-or-more-teams.}}
+
 \hypertarget{free-agency}{%
 \chapter{FAAB \& Free Agency}\label{free-agency}}
-
-coming soon
 
 \hypertarget{free-agency-acquisition-budget-faab}{%
 \section{Free Agency Acquisition Budget (FAAB)}\label{free-agency-acquisition-budget-faab}}
 
+\hypertarget{players-will-become-locked-at-the-start-of-their-respective-game.}{%
+\subsection{Players will become locked at the start of their respective game.}\label{players-will-become-locked-at-the-start-of-their-respective-game.}}
+
+\hypertarget{each-team-will-start-the-season-with-an-annual-budget-of-200-minus-any-subtractions-from-penalties-during-the-draft.-this-will-be-the-only-faab-money-owners-will-have-for-the-entire-season-including-playoffs.}{%
+\subsection{Each team will start the season with an annual budget of \$200 minus any subtractions from penalties during the draft. This will be the ONLY FAAB money owners will have for the entire season, including playoffs.}\label{each-team-will-start-the-season-with-an-annual-budget-of-200-minus-any-subtractions-from-penalties-during-the-draft.-this-will-be-the-only-faab-money-owners-will-have-for-the-entire-season-including-playoffs.}}
+
+\hypertarget{the-weekly-faab-auction-will-be-a-silent-auction-with-the-player-being-awarded-to-the-highest-bidder.}{%
+\subsection{The weekly FAAB auction will be a silent auction with the player being awarded to the highest bidder.}\label{the-weekly-faab-auction-will-be-a-silent-auction-with-the-player-being-awarded-to-the-highest-bidder.}}
+
+\hypertarget{in-the-event-of-a-tie-the-player-will-be-awarded-to-the-team-with-the-lower-total-points-scored-for-the-season.}{%
+\subsubsection{In the event of a tie the player will be awarded to the team with the lower total points scored for the season.}\label{in-the-event-of-a-tie-the-player-will-be-awarded-to-the-team-with-the-lower-total-points-scored-for-the-season.}}
+
+\hypertarget{the-faab-auction-and-the-subsequent-free-agency-period-will-follow-the-same-timeline-as-espn-standard-leagues.}{%
+\subsection{The FAAB auction and the subsequent free agency period will follow the same timeline as ESPN standard leagues.}\label{the-faab-auction-and-the-subsequent-free-agency-period-will-follow-the-same-timeline-as-espn-standard-leagues.}}
+
+\hypertarget{faab-bids-can-be-submitted-at-any-time-but-will-not-be-processed-until-300-a.m.-est-thursday-morning.}{%
+\subsubsection{FAAB bids can be submitted at any time but will not be processed until 3:00 a.m. EST Thursday morning.}\label{faab-bids-can-be-submitted-at-any-time-but-will-not-be-processed-until-300-a.m.-est-thursday-morning.}}
+
+\hypertarget{at-300-a.m.-est-thursday-morning-players-not-bid-on-will-be-available-for-free-agency-pickup.}{%
+\subsubsection{At 3:00 a.m. EST Thursday morning, players not bid on will be available for free agency pickup.}\label{at-300-a.m.-est-thursday-morning-players-not-bid-on-will-be-available-for-free-agency-pickup.}}
+
+\hypertarget{players-selected-from-free-agency-will-not-count-against-a-teams-faab-budget.}{%
+\subsubsection{Players selected from free agency will not count against a team's FAAB budget.}\label{players-selected-from-free-agency-will-not-count-against-a-teams-faab-budget.}}
+
+\hypertarget{the-same-process-will-be-followed-during-the-playoffs.-special-priority-will-not-be-given-to-certain-teams.}{%
+\subsection{The same process will be followed during the playoffs. Special priority will not be given to certain teams.}\label{the-same-process-will-be-followed-during-the-playoffs.-special-priority-will-not-be-given-to-certain-teams.}}
+
+\hypertarget{accidental-player-drop---if-a-team-owner-accidentally-drops-a-player-to-waivers-they-may-ask-to-have-the-player-added-back-to-their-roster-if-the-following-conditions-are-met}{%
+\subsubsection{Accidental player drop - If a team owner accidentally drops a player to waivers they may ask to have the player added back to their roster if the following conditions are met:}\label{accidental-player-drop---if-a-team-owner-accidentally-drops-a-player-to-waivers-they-may-ask-to-have-the-player-added-back-to-their-roster-if-the-following-conditions-are-met}}
+
+\hypertarget{there-can-not-be-any-major-news-news-level-up-to-commissioners-determination-involving-the-player-within-the-24-hour-window}{%
+\paragraph{There can not be any major news (news level up to commissioner's determination) involving the player within the 24 hour window}\label{there-can-not-be-any-major-news-news-level-up-to-commissioners-determination-involving-the-player-within-the-24-hour-window}}
+
+\hypertarget{the-commissioner-must-be-notified-of-the-situation-within-24-hours-of-the-player-being-dropped}{%
+\paragraph{The commissioner must be notified of the situation within 24 hours of the player being dropped}\label{the-commissioner-must-be-notified-of-the-situation-within-24-hours-of-the-player-being-dropped}}
+
+\hypertarget{the-senior-council-must-review-and-approveveto-each-occurrence}{%
+\subsubsection{The Senior Council must review and approve/veto each occurrence}\label{the-senior-council-must-review-and-approveveto-each-occurrence}}
+
+\hypertarget{the-team-owner-must-pay-10-faab-or-if-they-have-less-than-10-faab-subtract-2-points-from-that-weeks-total-points-scored.}{%
+\subsubsection{The team owner must pay \$10 FAAB or, if they have less than \$10 FAAB, subtract 2 points from that weeks total points scored.}\label{the-team-owner-must-pay-10-faab-or-if-they-have-less-than-10-faab-subtract-2-points-from-that-weeks-total-points-scored.}}
+
 \hypertarget{trades}{%
 \chapter{Trades}\label{trades}}
-
-coming soon
 
 \hypertarget{eligibility}{%
 \section{Eligibility}\label{eligibility}}
 
+\hypertarget{trades-are-allowed-between-franchise-owners-and-can-include-two-or-more-teams.}{%
+\subsection{Trades are allowed between franchise owners and can include two or more teams.}\label{trades-are-allowed-between-franchise-owners-and-can-include-two-or-more-teams.}}
+
+\hypertarget{active-nfl-players-are-the-only-tradable-commodity-in-tsu.}{%
+\subsection{Active NFL players are the only tradable commodity in TSU.}\label{active-nfl-players-are-the-only-tradable-commodity-in-tsu.}}
+
+\hypertarget{money-draft-picks-personal-sexual-favors-etc.-are-not-tradable-commodities-and-any-trade-including-such-will-be-considered-null-and-void.}{%
+\subsubsection{Money, draft picks, personal \& sexual favors, etc., are NOT tradable commodities and any trade including such will be considered null and void.}\label{money-draft-picks-personal-sexual-favors-etc.-are-not-tradable-commodities-and-any-trade-including-such-will-be-considered-null-and-void.}}
+
+\hypertarget{all-trades-will-be-open-to-votes-of-approval-or-disapproval-from-the-entire-league.}{%
+\subsection{All trades will be open to votes of approval or disapproval from the entire league.}\label{all-trades-will-be-open-to-votes-of-approval-or-disapproval-from-the-entire-league.}}
+
+\hypertarget{for-a-trade-to-be-overruled-and-thus-canceled-it-must-receive-at-least-6-votes-of-disapproval-from-uninvolved-team-owners.}{%
+\subsection{For a trade to be overruled, and thus canceled, it must receive at least 6 votes of disapproval from uninvolved team owners.}\label{for-a-trade-to-be-overruled-and-thus-canceled-it-must-receive-at-least-6-votes-of-disapproval-from-uninvolved-team-owners.}}
+
+\hypertarget{trades-will-not-be-allowed-once-the-playoffs-begin.-no-exceptions}{%
+\subsection{Trades will NOT be allowed once the playoffs begin. NO Exceptions!}\label{trades-will-not-be-allowed-once-the-playoffs-begin.-no-exceptions}}
+
+\hypertarget{short-term-trade-backs-will-not-be-tolerated}{%
+\subsection{Short term trade backs will not be tolerated}\label{short-term-trade-backs-will-not-be-tolerated}}
+
+\hypertarget{all-trades-not-involving-the-commissioner-are-subject-to-a-final-review-by-the-commissioner-without-regard-to-the-league-vote.}{%
+\subsection{ALL trades not involving the commissioner are subject to a final review by the commissioner, without regard to the league vote.}\label{all-trades-not-involving-the-commissioner-are-subject-to-a-final-review-by-the-commissioner-without-regard-to-the-league-vote.}}
+
 \hypertarget{who-what-why-where-when}{%
 \section{Who, What, Why, Where, \& When}\label{who-what-why-where-when}}
+
+\hypertarget{trades-may-be-proposed-and-accepted-at-any-time-prior-to-the-trade-deadline-but-unless-special-circumstances-apply-will-be-processed-by-the-commissioner-only-after-a-minimum-wait-time-of-24-hours-in-which-all-involved-players-must-be-and-remain-in-an-unlocked-status.}{%
+\subsection{Trades may be proposed and accepted at any time prior to the trade deadline but, unless special circumstances apply, will be processed by the commissioner only after a minimum wait time of 24 hours, in which all involved players must be and remain in an ``unlocked'' status.}\label{trades-may-be-proposed-and-accepted-at-any-time-prior-to-the-trade-deadline-but-unless-special-circumstances-apply-will-be-processed-by-the-commissioner-only-after-a-minimum-wait-time-of-24-hours-in-which-all-involved-players-must-be-and-remain-in-an-unlocked-status.}}
+
+\hypertarget{during-this-24-hour-period-other-teams-may-vote-to-approve-or-disapprove-of-the-trade.}{%
+\subsubsection{During this 24 hour period other teams may vote to approve or disapprove of the trade.}\label{during-this-24-hour-period-other-teams-may-vote-to-approve-or-disapprove-of-the-trade.}}
+
+\hypertarget{trades-will-only-be-processed-if-the-players-status-is-unlocked-meaning-they-have-not-yet-played-in-their-weekly-game.}{%
+\subsubsection{Trades will only be processed if the players status is ``unlocked'', meaning they have not yet played in their weekly game.}\label{trades-will-only-be-processed-if-the-players-status-is-unlocked-meaning-they-have-not-yet-played-in-their-weekly-game.}}
+
+\hypertarget{the-commissioner-has-the-power-to-review-and-approve-or-disapprove-of-any-trade-where-a-conflict-of-interest-does-not-exist-for-the-commissioner-in-any-time-frame-he-or-she-wishes-without-the-6-vote-approval-or-24-hour-waiting-period.}{%
+\subsection{The commissioner has the power to review and approve or disapprove of any trade, where a conflict of interest does not exist for the commissioner, in any time frame he or she wishes without the 6 vote approval or 24 hour waiting period.}\label{the-commissioner-has-the-power-to-review-and-approve-or-disapprove-of-any-trade-where-a-conflict-of-interest-does-not-exist-for-the-commissioner-in-any-time-frame-he-or-she-wishes-without-the-6-vote-approval-or-24-hour-waiting-period.}}
+
+\hypertarget{this-power-should-only-be-used-in-special-circumstances-where-the-normal-procedure-may-be-unfair-due-to-circumstances-that-are-unforeseen-at-this-time.}{%
+\subsubsection{This power should only be used in special circumstances where the normal procedure may be unfair due to circumstances that are unforeseen at this time.}\label{this-power-should-only-be-used-in-special-circumstances-where-the-normal-procedure-may-be-unfair-due-to-circumstances-that-are-unforeseen-at-this-time.}}
 
 \hypertarget{playoffs}{%
 \chapter{Playoffs}\label{playoffs}}
 
-coming soon
-
 \hypertarget{when}{%
 \section{When}\label{when}}
+
+\hypertarget{the-regular-season-of-tsu-will-conclude-with-nfl-week-12.}{%
+\subsection{The regular season of TSU will conclude with NFL week 12.}\label{the-regular-season-of-tsu-will-conclude-with-nfl-week-12.}}
+
+\hypertarget{the-first-week-of-tsu-playoffs-will-be-week-13-tsu-wildcard-week.}{%
+\subsection{The first week of TSU playoffs will be week 13 (TSU wildcard week).}\label{the-first-week-of-tsu-playoffs-will-be-week-13-tsu-wildcard-week.}}
+
+\hypertarget{espn-cannot-accommodate-our-custom-playoff-structure-so-the-matchups-will-be-set-manually-each-week-by-the-commissioner.-an-up-to-date-playoff-bracket-will-be-supplied-to-everyone-during-each-week-of-the-playoffs.}{%
+\subsection{ESPN cannot accommodate our custom playoff structure, so the matchups will be set manually each week by the commissioner. An up-to-date playoff bracket will be supplied to everyone during each week of the playoffs.}\label{espn-cannot-accommodate-our-custom-playoff-structure-so-the-matchups-will-be-set-manually-each-week-by-the-commissioner.-an-up-to-date-playoff-bracket-will-be-supplied-to-everyone-during-each-week-of-the-playoffs.}}
+
+\hypertarget{final-season-rankings-for-teams-will-be-determined-by-their-individual-performances-in-the-playoff-structure-that-is-outlined-a-drawn-below.}{%
+\subsection{Final season rankings for teams will be determined by their individual performances in the playoff structure that is outlined a drawn below.}\label{final-season-rankings-for-teams-will-be-determined-by-their-individual-performances-in-the-playoff-structure-that-is-outlined-a-drawn-below.}}
+
+\hypertarget{overall-structure}{%
+\section{Overall Structure}\label{overall-structure}}
+
+\includegraphics[width=0.9\linewidth]{images/tsu-playoffs}
 
 \hypertarget{winners-bracket}{%
 \section{Winner's Bracket}\label{winners-bracket}}
 
+\hypertarget{the-playoff-structure-for-the-2021-season-will-be-a-customized-system-with-the-winners-bracket-beginning-with-the-top-6-seeded-teams-in-the-league.}{%
+\subsection{The playoff structure for the 2021 season will be a customized system with the winner's bracket beginning with the top 6 seeded teams in the league.}\label{the-playoff-structure-for-the-2021-season-will-be-a-customized-system-with-the-winners-bracket-beginning-with-the-top-6-seeded-teams-in-the-league.}}
+
+\hypertarget{teams-will-first-be-ordered-on-overall-regular-season-record.}{%
+\subsection{Teams will first be ordered on overall regular season record.}\label{teams-will-first-be-ordered-on-overall-regular-season-record.}}
+
+\hypertarget{if-two-teams-end-the-regular-season-with-the-same-overall-record-the-following-tiebreak-steps-will-be-used-until-one-of-the-steps-breaks-the-tie}{%
+\subsection{If two teams end the regular season with the same overall record the following tiebreak steps will be used until one of the steps breaks the tie:}\label{if-two-teams-end-the-regular-season-with-the-same-overall-record-the-following-tiebreak-steps-will-be-used-until-one-of-the-steps-breaks-the-tie}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Head to head record
+\item
+  Total points for on the season (the team with the most post for would win the tie)
+\item
+  Total points against on the season (the team with the most points against would win the tie)
+\item
+  Coin Toss
+\end{enumerate}
+
+\hypertarget{if-three-or-more-teams-end-the-regular-season-with-the-same-overall-record-the-following-tiebreak-steps-will-be-used-to-break-the-tie}{%
+\subsection{If three or more teams end the regular season with the same overall record the following tiebreak steps will be used to break the tie:}\label{if-three-or-more-teams-end-the-regular-season-with-the-same-overall-record-the-following-tiebreak-steps-will-be-used-to-break-the-tie}}
+
+\hypertarget{all-tied-teams-will-be-ordered-based-on-their-win-percentage-against-the-other-teams-involved-in-the-tie-this-does-not-include-wins-or-loses-against-teams-who-are-not-involved-in-the-tie.-the-team-with-the-highest-win-percentage-amongst-tied-teams-will-receive-the-highest-available-seed-and-the-lowest-win-percentage-will-receive-the-lowest-seed.}{%
+\subsubsection{All tied teams will be ordered based on their win percentage against the other teams involved in the tie (this does not include wins or loses against teams who are not involved in the tie). The team with the highest win percentage amongst tied teams will receive the highest available seed and the lowest win percentage will receive the lowest seed.}\label{all-tied-teams-will-be-ordered-based-on-their-win-percentage-against-the-other-teams-involved-in-the-tie-this-does-not-include-wins-or-loses-against-teams-who-are-not-involved-in-the-tie.-the-team-with-the-highest-win-percentage-amongst-tied-teams-will-receive-the-highest-available-seed-and-the-lowest-win-percentage-will-receive-the-lowest-seed.}}
+
+\hypertarget{if-two-or-more-teams-have-the-same-win-percentage-amongst-tied-teams-the-following-steps-will-be-used-until-the-tie-is-broken}{%
+\subsubsection{If two or more teams have the same win percentage amongst tied teams the following steps will be used until the tie is broken:}\label{if-two-or-more-teams-have-the-same-win-percentage-amongst-tied-teams-the-following-steps-will-be-used-until-the-tie-is-broken}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Total points for on the season\\
+\item
+  Total points against on the season
+\item
+  Best worst week - Most points scored in the teams worst week
+\item
+  Coin Toss
+\end{enumerate}
+
+\hypertarget{playoffs-round-1wildcard-weekend}{%
+\subsection{Playoffs -- Round 1(wildcard weekend)}\label{playoffs-round-1wildcard-weekend}}
+
+\hypertarget{round-1-of-the-playoffs-week-13-will-be-a-single-elimination-game-for-seeds-3-6.}{%
+\subsubsection{Round 1 of the playoffs (week 13) will be a single elimination game for seeds 3-6.}\label{round-1-of-the-playoffs-week-13-will-be-a-single-elimination-game-for-seeds-3-6.}}
+
+\hypertarget{the-losers-of-the-wildcard-matchup-will-drop-down-into-the-losers-bracket.}{%
+\subsubsection{The losers of the wildcard matchup will drop down into the loser's bracket.}\label{the-losers-of-the-wildcard-matchup-will-drop-down-into-the-losers-bracket.}}
+
+\hypertarget{the-top-two-seeds-will-have-a-bye-week-for-week-13}{%
+\subsubsection{The top two seeds will have a ``bye'' week for week 13}\label{the-top-two-seeds-will-have-a-bye-week-for-week-13}}
+
+\hypertarget{there-will-be-a-1-vs.-2-friendly-match-during-wildcard-week-with-the-winner-securing-a-payout-listed-in-payouts-section.-a-win-or-loss-will-not-have-an-effect-on-either-team.}{%
+\paragraph{There will be a 1 vs.~2 friendly match during wildcard week with the winner securing a payout listed in payouts section. A win or loss will not have an effect on either team.}\label{there-will-be-a-1-vs.-2-friendly-match-during-wildcard-week-with-the-winner-securing-a-payout-listed-in-payouts-section.-a-win-or-loss-will-not-have-an-effect-on-either-team.}}
+
+\hypertarget{the-winners-of-the-wildcard-games-will-advance-to-play-the-1-and-2-seeds-in-week-14.}{%
+\subsubsection{The winners of the wildcard games will advance to play the 1 and 2 seeds in week 14.}\label{the-winners-of-the-wildcard-games-will-advance-to-play-the-1-and-2-seeds-in-week-14.}}
+
+\hypertarget{the-lowest-seeded-wildcard-winner-will-be-paired-against-the-1st-seeded-team.}{%
+\paragraph{The lowest seeded wildcard winner will be paired against the 1st seeded team.}\label{the-lowest-seeded-wildcard-winner-will-be-paired-against-the-1st-seeded-team.}}
+
+\hypertarget{playoffs-round-2}{%
+\subsection{Playoffs -- Round 2}\label{playoffs-round-2}}
+
+\hypertarget{round-2-of-the-playoffs-week-14-will-be-a-single-elimination-game-for-all-remaining-seeds-in-the-winners-bracket.}{%
+\subsubsection{Round 2 of the playoffs (week 14) will be a single elimination game for all remaining seeds in the winner's bracket.}\label{round-2-of-the-playoffs-week-14-will-be-a-single-elimination-game-for-all-remaining-seeds-in-the-winners-bracket.}}
+
+\hypertarget{highest-scoring-loser-in-round-2-of-the-playoffs-week-14-will-move-into-the-3rd-place-matchup.}{%
+\subsubsection{Highest scoring loser in Round 2 of the playoffs (week 14) will move into the 3rd place matchup.}\label{highest-scoring-loser-in-round-2-of-the-playoffs-week-14-will-move-into-the-3rd-place-matchup.}}
+
+\hypertarget{if-the-two-losing-teams-in-round-2-of-the-playoffs-scored-the-same-total-points-in-week-14.-the-team-with-the-highest-playoff-seeding-will-advance-to-the-3rd-place-matchup}{%
+\paragraph{If the two losing teams in Round 2 of the playoffs scored the same total points in week 14. The team with the highest playoff seeding will advance to the 3rd place matchup}\label{if-the-two-losing-teams-in-round-2-of-the-playoffs-scored-the-same-total-points-in-week-14.-the-team-with-the-highest-playoff-seeding-will-advance-to-the-3rd-place-matchup}}
+
+\hypertarget{the-lowest-scoring-loser-in-round-2-of-the-playoffs-does-not-drop-into-the-losers-bracket-and-is-locked-in-at-finishing-5th-overall}{%
+\subsubsection{The lowest scoring loser in Round 2 of the playoffs does not drop into the loser's bracket and is locked in at finishing 5th overall}\label{the-lowest-scoring-loser-in-round-2-of-the-playoffs-does-not-drop-into-the-losers-bracket-and-is-locked-in-at-finishing-5th-overall}}
+
+\hypertarget{playoffs-round-3-championship-3rd-place-matchup}{%
+\subsection{Playoffs -- Round 3 (Championship \& 3rd place matchup)}\label{playoffs-round-3-championship-3rd-place-matchup}}
+
+\hypertarget{round-3-off-the-playoffs-weeks-15-16-will-be-a-two-week-cumulative-score-matchup-for-both-the-championship-and-the-3rd-place-matchup}{%
+\subsubsection{Round 3 off the playoffs (weeks 15 \& 16) will be a two week cumulative score matchup for both the Championship and the 3rd place matchup}\label{round-3-off-the-playoffs-weeks-15-16-will-be-a-two-week-cumulative-score-matchup-for-both-the-championship-and-the-3rd-place-matchup}}
+
+\hypertarget{the-championship}{%
+\subsubsection{The Championship}\label{the-championship}}
+
+\hypertarget{the-team-with-the-most-cumulative-points-for-week-15-and-week-16-will-be-the-winner-and-declared-the-champion-of-tsu-blessed-by-thy-name.}{%
+\paragraph{The team with the most cumulative points for week 15 and week 16 will be the winner and declared the Champion of TSU, blessed by thy name.}\label{the-team-with-the-most-cumulative-points-for-week-15-and-week-16-will-be-the-winner-and-declared-the-champion-of-tsu-blessed-by-thy-name.}}
+
+\hypertarget{the-loser-of-the-championship-matchup-will-finish-in-2nd-place.}{%
+\paragraph{The loser of the championship matchup will finish in 2nd place.}\label{the-loser-of-the-championship-matchup-will-finish-in-2nd-place.}}
+
+\hypertarget{the-3rd-place-matchup}{%
+\subsubsection{The 3rd Place Matchup}\label{the-3rd-place-matchup}}
+
+\hypertarget{the-3rd-place-matchup-will-be-against-the-highest-scoring-loser-of-round-2-of-the-playoffs-vs-the-team-from-the-losers-bracket-with-the-highest-cumulative-total-points-for-weeks-13-and-14.}{%
+\paragraph{The 3rd place matchup will be against the highest scoring loser of Round 2 of the playoffs vs the team from the losers bracket with the highest cumulative total points for weeks 13 and 14.}\label{the-3rd-place-matchup-will-be-against-the-highest-scoring-loser-of-round-2-of-the-playoffs-vs-the-team-from-the-losers-bracket-with-the-highest-cumulative-total-points-for-weeks-13-and-14.}}
+
+\hypertarget{the-team-with-the-most-cumulative-points-for-week-15-and-week-16-will-be-the-winner-and-declared-the-3rd-place-finisher.}{%
+\paragraph{The team with the most cumulative points for week 15 and week 16 will be the winner and declared the 3rd place finisher.}\label{the-team-with-the-most-cumulative-points-for-week-15-and-week-16-will-be-the-winner-and-declared-the-3rd-place-finisher.}}
+
+\hypertarget{the-loser-of-the-3rd-place-matchup-will-finish-in-4th-place.}{%
+\paragraph{The loser of the 3rd place matchup will finish in 4th place.}\label{the-loser-of-the-3rd-place-matchup-will-finish-in-4th-place.}}
+
 \hypertarget{losers-bracket}{%
 \section{Loser's Bracket}\label{losers-bracket}}
+
+\hypertarget{there-are-no-head-to-head-matchups-in-the-losers-bracket-for-weeks-13-14-15.-teams-in-the-losers-bracket-will-be-ranked-by-their-cumulative-points-from-weeks-13-14-15-regardless-of-when-they-entered-the-losers-bracket.}{%
+\subsection{There are no head to head matchups in the loser's bracket for weeks 13, 14, \& 15. Teams in the loser's bracket will be ranked by their cumulative points from weeks 13, 14, \& 15, regardless of when they entered the loser's bracket.}\label{there-are-no-head-to-head-matchups-in-the-losers-bracket-for-weeks-13-14-15.-teams-in-the-losers-bracket-will-be-ranked-by-their-cumulative-points-from-weeks-13-14-15-regardless-of-when-they-entered-the-losers-bracket.}}
+
+\hypertarget{the-team-with-the-highest-cumulative-total-points-for-weeks-13-and-14-will-be-promoted-out-of-the-losers-bracket-to-compete-in-weeks-15-and-16-for-3rd-place-overall}{%
+\subsection{The team with the highest cumulative total points for weeks 13 and 14 will be promoted out of the loser's bracket to compete in weeks 15 and 16 for 3rd place overall}\label{the-team-with-the-highest-cumulative-total-points-for-weeks-13-and-14-will-be-promoted-out-of-the-losers-bracket-to-compete-in-weeks-15-and-16-for-3rd-place-overall}}
+
+\hypertarget{the-2-teams-with-the-lowest-total-points-in-weeks-13-14-and-15-compete-in-week-16-in-the-randy-bowl.-the-loser-of-the-randy-bowl-will-contract-the-randy.}{%
+\subsection{The 2 teams with the lowest total points in weeks 13, 14, and 15 compete in week 16 in The Randy Bowl. The loser of The Randy Bowl will contract The Randy.}\label{the-2-teams-with-the-lowest-total-points-in-weeks-13-14-and-15-compete-in-week-16-in-the-randy-bowl.-the-loser-of-the-randy-bowl-will-contract-the-randy.}}
 
 \hypertarget{the-randy-bowl}{%
 \section{The Randy Bowl}\label{the-randy-bowl}}
 
+\hypertarget{the-2-teams-ranked-11th-and-12th-the-lowest-scores-in-total-points-for-weeks-13-14-15-compete-in-week-16-in-the-randy-bowl.}{%
+\subsection{The 2 teams ranked 11th and 12th (the lowest scores) in total points for weeks 13, 14, \& 15 compete in week 16 in The Randy Bowl.}\label{the-2-teams-ranked-11th-and-12th-the-lowest-scores-in-total-points-for-weeks-13-14-15-compete-in-week-16-in-the-randy-bowl.}}
+
+\hypertarget{the-winner-of-the-randy-bowl-takes-11th-place-overall.}{%
+\subsection{The winner of The Randy Bowl takes 11th place overall.}\label{the-winner-of-the-randy-bowl-takes-11th-place-overall.}}
+
+\hypertarget{the-loser-of-the-randy-bowl-takes-12th-place-overall-and-contracts-the-randy.}{%
+\subsection{The loser of The Randy Bowl takes 12th place overall and contracts The Randy.}\label{the-loser-of-the-randy-bowl-takes-12th-place-overall-and-contracts-the-randy.}}
+
 \hypertarget{offseason-changes}{%
 \chapter{Offseason Changes}\label{offseason-changes}}
-
-coming soon
 
 \hypertarget{when-1}{%
 \section{When}\label{when-1}}
 
+\hypertarget{rule-changes-and-league-updates-will-take-place-in-the-official-tsu-offseason.}{%
+\subsection{Rule changes and league updates will take place in the official TSU offseason.}\label{rule-changes-and-league-updates-will-take-place-in-the-official-tsu-offseason.}}
+
+\hypertarget{the-official-offseason-runs-from-the-day-following-the-tsu-championship-game-until-the-day-prior-to-the-draft.}{%
+\subsubsection{The official offseason runs from the day following the TSU Championship game until the day prior to the draft.}\label{the-official-offseason-runs-from-the-day-following-the-tsu-championship-game-until-the-day-prior-to-the-draft.}}
+
+\hypertarget{the-only-way-a-rule-change-may-be-made-during-the-season-is-if-a-motion-to-change-a-rule-is-made-to-the-commissioner-who-will-then-inform-all-team-owners-and-ask-for-a-yay-or-nay-vote-from-all-league-members.-in-season-rule-changes-can-only-be-passed-with-a-unanimous-vote-of-all-members.}{%
+\subsection{The only way a rule change may be made during the season is if a motion to change a rule is made to the commissioner, who will then inform ALL team owners and ask for a ``yay'' or ``nay'' vote from all league members. In-season rule changes can only be passed with a unanimous vote of all members.}\label{the-only-way-a-rule-change-may-be-made-during-the-season-is-if-a-motion-to-change-a-rule-is-made-to-the-commissioner-who-will-then-inform-all-team-owners-and-ask-for-a-yay-or-nay-vote-from-all-league-members.-in-season-rule-changes-can-only-be-passed-with-a-unanimous-vote-of-all-members.}}
+
 \hypertarget{who-and-how}{%
 \section{Who and How}\label{who-and-how}}
+
+\hypertarget{rule-or-changes-of-any-type-may-be-suggested-at-any-point-by-any-team-owner.}{%
+\subsection{Rule or changes of any type may be suggested at any point by any team owner.}\label{rule-or-changes-of-any-type-may-be-suggested-at-any-point-by-any-team-owner.}}
+
+\hypertarget{all-suggestions-for-offseason-changes-will-be-recorded-by-the-commissioner-and-all-topics-will-be-discussed-and-voted-on-by-all-eligible-members-during-the-offseason-period.}{%
+\subsection{All suggestions for offseason changes will be recorded by the commissioner and all topics will be discussed and voted on by all eligible members during the offseason period.}\label{all-suggestions-for-offseason-changes-will-be-recorded-by-the-commissioner-and-all-topics-will-be-discussed-and-voted-on-by-all-eligible-members-during-the-offseason-period.}}
+
+\hypertarget{approved-changes-will-be-added-to-the-constitution-and-will-appear-in-the-articles-as-well-as-in-the-amendments-section.}{%
+\subsection{Approved changes will be added to the Constitution and will appear in the Articles as well as in the Amendments section.}\label{approved-changes-will-be-added-to-the-constitution-and-will-appear-in-the-articles-as-well-as-in-the-amendments-section.}}
+
+\hypertarget{only-team-owners-who-have-completed-a-full-season-of-play-in-tsu-are-eligible-to-vote-on-league-rule-changes.}{%
+\subsection{Only team owners who have completed a full season of play in TSU are eligible to vote on league rule changes.}\label{only-team-owners-who-have-completed-a-full-season-of-play-in-tsu-are-eligible-to-vote-on-league-rule-changes.}}
+
+\hypertarget{teams-must-also-be-current-active-members-of-the-league-to-be-eligible-for-voting.}{%
+\subsubsection{Teams must also be current active members of the league to be eligible for voting.}\label{teams-must-also-be-current-active-members-of-the-league-to-be-eligible-for-voting.}}
+
+\hypertarget{all-active-team-owners-including-owners-who-have-not-completed-a-full-season-in-tsu-are-eligible-to-vote-on-in-season-rule-changes.}{%
+\subsubsection{All active team owners, including owners who have not completed a full season in TSU, are eligible to vote on in-season rule changes.}\label{all-active-team-owners-including-owners-who-have-not-completed-a-full-season-in-tsu-are-eligible-to-vote-on-in-season-rule-changes.}}
+
+\hypertarget{the-commissioner-may-include-or-exclude-non-tenured-members-on-any-vote-heshe-deems-necessary-for-such-action.}{%
+\subsubsection{The commissioner may include or exclude non-tenured members on any vote he/she deems necessary for such action.}\label{the-commissioner-may-include-or-exclude-non-tenured-members-on-any-vote-heshe-deems-necessary-for-such-action.}}
+
+\hypertarget{rule-changes-that-deal-solely-with-the-internal-functions-of-the-league-i.e.-veto-limits-roster-size-etc.-require-a-majority-vote-to-alter.}{%
+\subsection{Rule changes that deal solely with the INTERNAL functions of the league (i.e., veto limits, roster size, etc.) require a majority vote to alter.}\label{rule-changes-that-deal-solely-with-the-internal-functions-of-the-league-i.e.-veto-limits-roster-size-etc.-require-a-majority-vote-to-alter.}}
+
+\hypertarget{rule-changes-that-deal-solely-with-external-functions-of-the-league-i.e.-increase-in-number-of-teams-entry-fee-alteration-webhost-etc.-require-a-23-of-all-eligible-members.}{%
+\subsection{Rule changes that deal solely with EXTERNAL functions of the league (i.e., increase in number of teams, entry fee alteration, webhost, etc.,) require a 2/3 of all eligible members.}\label{rule-changes-that-deal-solely-with-external-functions-of-the-league-i.e.-increase-in-number-of-teams-entry-fee-alteration-webhost-etc.-require-a-23-of-all-eligible-members.}}
 
 \hypertarget{adding-a-new-owner}{%
 \section{Adding A New Owner}\label{adding-a-new-owner}}
 
+\hypertarget{in-the-event-an-owner-spot-opens-in-tsu-the-following-processes-will-be-followed-in-order-to-fill-the-vacancy.}{%
+\subsection{In the event an owner spot opens in TSU, the following processes will be followed in order to fill the vacancy.}\label{in-the-event-an-owner-spot-opens-in-tsu-the-following-processes-will-be-followed-in-order-to-fill-the-vacancy.}}
+
+\hypertarget{out-of-season-not-expelled-or-banished-in-season}{%
+\subsubsection{Out of season (not expelled or banished in-season)}\label{out-of-season-not-expelled-or-banished-in-season}}
+
+\hypertarget{potential-members-must-be-nominated-by-an-existing-member-of-tsu-these-nominating-members-will-be-referred-to-as-sponsors.}{%
+\paragraph{Potential members must be nominated by an existing member of TSU; these nominating members will be referred to as sponsors.}\label{potential-members-must-be-nominated-by-an-existing-member-of-tsu-these-nominating-members-will-be-referred-to-as-sponsors.}}
+
+\hypertarget{potential-members-will-be-required-to-take-the-official-saturated-unicorn-entrance-exam-suee-and-each-candidate-will-be-discussed-by-their-sponsor-and-the-senior-council.}{%
+\paragraph{Potential members will be required to take the official Saturated Unicorn Entrance Exam (SUEE) and each candidate will be discussed by their sponsor and the Senior Council.}\label{potential-members-will-be-required-to-take-the-official-saturated-unicorn-entrance-exam-suee-and-each-candidate-will-be-discussed-by-their-sponsor-and-the-senior-council.}}
+
+\hypertarget{the-nominee-with-the-highest-cumulative-score-from-the-suee-and-senior-council-review-will-be-offered-a-spot-in-tsu.}{%
+\paragraph{The nominee with the highest cumulative score from the SUEE and Senior Council review will be offered a spot in TSU.}\label{the-nominee-with-the-highest-cumulative-score-from-the-suee-and-senior-council-review-will-be-offered-a-spot-in-tsu.}}
+
+\hypertarget{the-commissioner-will-make-the-official-offer-of-membership-to-the-potential-member.}{%
+\subparagraph{The Commissioner will make the official offer of membership to the potential member.}\label{the-commissioner-will-make-the-official-offer-of-membership-to-the-potential-member.}}
+
+\hypertarget{sponsors-will-be-responsible-for-informing-their-individual-nominees-who-were-not-granted-membership}{%
+\subparagraph{Sponsors will be responsible for informing their individual nominees who were not granted membership}\label{sponsors-will-be-responsible-for-informing-their-individual-nominees-who-were-not-granted-membership}}
+
+\hypertarget{in-season-owner-quit-was-expelled-banished-etc.}{%
+\subsection{In-season (owner quit, was expelled, banished etc.)}\label{in-season-owner-quit-was-expelled-banished-etc.}}
+
+\hypertarget{due-to-the-weekly-constraints-of-fantasy-football-the-person-finishing-2nd-in-the-most-recent-nominee-process-will-be-asked-to-take-over-for-the-departed-team-owner.}{%
+\subsubsection{Due to the weekly constraints of fantasy football, the person finishing 2nd in the most recent nominee process will be asked to take over for the departed team owner.}\label{due-to-the-weekly-constraints-of-fantasy-football-the-person-finishing-2nd-in-the-most-recent-nominee-process-will-be-asked-to-take-over-for-the-departed-team-owner.}}
+
+\hypertarget{the-new-owner-will-take-the-team-as-it-was-left-and-will-be-expected-to-manage-the-team-to-the-best-of-their-abilities.}{%
+\subsubsection{The new owner will take the team as it was left and will be expected to manage the team to the best of their abilities.}\label{the-new-owner-will-take-the-team-as-it-was-left-and-will-be-expected-to-manage-the-team-to-the-best-of-their-abilities.}}
+
+\hypertarget{an-in-season-invitation-is-not-a-permanent-owner-position-and-all-owners-added-in-season-will-be-evaluated-by-the-senior-council-based-on-many-factors-including-their-handling-of-the-in-season-takeover-of-the-abandoned-team.}{%
+\subsubsection{An in-season invitation is not a permanent owner position and all owners added in-season will be evaluated, by the Senior Council, based on many factors, including their handling of the in-season takeover of the abandoned team.}\label{an-in-season-invitation-is-not-a-permanent-owner-position-and-all-owners-added-in-season-will-be-evaluated-by-the-senior-council-based-on-many-factors-including-their-handling-of-the-in-season-takeover-of-the-abandoned-team.}}
+
+\hypertarget{the-senior-council-may-ask-for-input-from-the-league-when-evaluating-a-prospective-member-under-these-circumstances.}{%
+\paragraph{The Senior Council may ask for input from the league when evaluating a prospective member under these circumstances.}\label{the-senior-council-may-ask-for-input-from-the-league-when-evaluating-a-prospective-member-under-these-circumstances.}}
+
 \hypertarget{new-membership-requirements-expectations}{%
 \section{New Membership Requirements \& Expectations}\label{new-membership-requirements-expectations}}
 
+\hypertarget{the-sponsor-of-a-nominee-who-becomes-a-member-of-tsu-will-be-assigned-several-duties-and-responsibilities.-they-are-as-follows}{%
+\subsection{The sponsor of a nominee who becomes a member of TSU will be assigned several duties and responsibilities. They are as follows:}\label{the-sponsor-of-a-nominee-who-becomes-a-member-of-tsu-will-be-assigned-several-duties-and-responsibilities.-they-are-as-follows}}
+
+\hypertarget{ensure-the-nominees-entry-fee-and-any-other-dues-are-paid-on-time}{%
+\subsubsection{Ensure the nominees entry fee and any other dues are paid on time}\label{ensure-the-nominees-entry-fee-and-any-other-dues-are-paid-on-time}}
+
+\hypertarget{ensure-the-nominee-sets-a-valid-line-up-each-week}{%
+\subsubsection{Ensure the nominee sets a valid line-up each week}\label{ensure-the-nominee-sets-a-valid-line-up-each-week}}
+
+\hypertarget{ensure-the-nominee-follows-all-rules-and-standards-of-tsu-fantasy-football-league-both-written-and-understood.}{%
+\subsubsection{Ensure the nominee follows all rules and standards of TSU fantasy football league, both written and understood.}\label{ensure-the-nominee-follows-all-rules-and-standards-of-tsu-fantasy-football-league-both-written-and-understood.}}
+
+\hypertarget{if-the-nominee-fails-at-participate-in-tsu-at-an-expected-level-the-sponsor-will-face-the-following-punishments}{%
+\subsection{If the nominee fails at participate in TSU at an expected level the sponsor will face the following punishments:}\label{if-the-nominee-fails-at-participate-in-tsu-at-an-expected-level-the-sponsor-will-face-the-following-punishments}}
+
+\hypertarget{if-a-nominee-does-not-pay-their-money-on-time-their-sponsor-has-1-week-to-get-the-funds-to-the-commissioner.-failure-to-do-so-will-result-in-the-forfeiture-of-the-members-own-league-entry-fee-and-membership-in-tsu.}{%
+\subsubsection{If a nominee does not pay their money on time their sponsor has 1 week to get the funds to the commissioner. Failure to do so will result in the forfeiture of the members own league entry fee and membership in TSU.}\label{if-a-nominee-does-not-pay-their-money-on-time-their-sponsor-has-1-week-to-get-the-funds-to-the-commissioner.-failure-to-do-so-will-result-in-the-forfeiture-of-the-members-own-league-entry-fee-and-membership-in-tsu.}}
+
+\hypertarget{if-a-nominee-fails-to-submit-a-valid-weekly-lineup-the-sponsor-will-be-penalized-10-faab-bucks-or-10-of-their-remaining-balance-whichever-is-greater.}{%
+\subsubsection{If a nominee fails to submit a valid weekly lineup the sponsor will be penalized 10 FAAB bucks or 10\% of their remaining balance, whichever is greater.}\label{if-a-nominee-fails-to-submit-a-valid-weekly-lineup-the-sponsor-will-be-penalized-10-faab-bucks-or-10-of-their-remaining-balance-whichever-is-greater.}}
+
+\hypertarget{punishment-for-any-other-violation-or-action-deemed-to-be-harmful-to-the-league-or-league-owner-by-a-nominee-will-be-fully-discussed-and-handed-down-by-the-senior-council.}{%
+\subsubsection{Punishment for any other violation or action deemed to be harmful to the league or league owner, by a nominee, will be fully discussed and handed down by the Senior Council.}\label{punishment-for-any-other-violation-or-action-deemed-to-be-harmful-to-the-league-or-league-owner-by-a-nominee-will-be-fully-discussed-and-handed-down-by-the-senior-council.}}
+
 \hypertarget{inactive-status-priority-reentry}{%
 \section{Inactive Status \& Priority Reentry}\label{inactive-status-priority-reentry}}
+
+\hypertarget{if-a-tenured-completed-a-full-year-of-play-draft-to-conclusion-of-season-owner-needs-to-leave-the-league-for-any-reason-they-will-be-able-to-reenter-the-league-within-3-years-with-a-preferred-status-at-a-later-date.}{%
+\subsection{If a tenured (completed a full year of play-draft to conclusion of season) owner needs to leave the league for any reason they will be able to reenter the league, (within 3 years) with a preferred status, at a later date.}\label{if-a-tenured-completed-a-full-year-of-play-draft-to-conclusion-of-season-owner-needs-to-leave-the-league-for-any-reason-they-will-be-able-to-reenter-the-league-within-3-years-with-a-preferred-status-at-a-later-date.}}
+
+\hypertarget{the-departing-member-must-notify-the-commissioner-of-their-intentions-to-leave-the-league-a-reason-would-not-need-to-be-disclosed}{%
+\subsubsection{The departing member must notify the commissioner of their intentions to leave the league (a reason would not need to be disclosed)}\label{the-departing-member-must-notify-the-commissioner-of-their-intentions-to-leave-the-league-a-reason-would-not-need-to-be-disclosed}}
+
+\hypertarget{the-member-must-be-in-good-standing-not-quitting-on-their-team-or-committing-other-behavior-deemed-detrimental-to-the-league}{%
+\subsubsection{The member must be in good standing (not quitting on their team or committing other behavior deemed detrimental to the league)}\label{the-member-must-be-in-good-standing-not-quitting-on-their-team-or-committing-other-behavior-deemed-detrimental-to-the-league}}
+
+\hypertarget{the-member-must-depart-during-a-period-of-the-season-that-allows-for-possible-adjustments-by-the-league-this-could-include-a-2-week-notice-if-during-the-season-any-time-in-the-off-season-until-august-1st-as-this-would-allow-ample-time-to-find-a-replacement.}{%
+\subsubsection{The member must depart during a period of the season that allows for possible adjustments by the league (this could include a 2 week notice if during the season, any time in the off-season (until August 1st) as this would allow ample time to find a replacement.}\label{the-member-must-depart-during-a-period-of-the-season-that-allows-for-possible-adjustments-by-the-league-this-could-include-a-2-week-notice-if-during-the-season-any-time-in-the-off-season-until-august-1st-as-this-would-allow-ample-time-to-find-a-replacement.}}
+
+\hypertarget{if-a-member-qualifies-for-this-status-they-will-be-able-to-go-into-an-inactive-league-status-that-would-grant-them-the-ability-to-assume-the-top-spot-on-the-waiting-list-if-within-3-years-and-bypass-the-entrance-exam.}{%
+\subsection{If a member qualifies for this status they will be able to go into an ``inactive'' league status that would grant them the ability to assume the top spot on the waiting list (if within 3 years) and bypass the entrance exam.}\label{if-a-member-qualifies-for-this-status-they-will-be-able-to-go-into-an-inactive-league-status-that-would-grant-them-the-ability-to-assume-the-top-spot-on-the-waiting-list-if-within-3-years-and-bypass-the-entrance-exam.}}
+
+\hypertarget{the-member-would-have-to-apply-for-reentry-and-their-status-would-be-voted-on-by-all-tenured-league-members.-if-the-owners-departure-is-temporary-ex.-they-have-an-emergency-and-cant-complete-a-season-then-a-temporary-owner-may-take-over-for-the-persons-team-until-they-are-ready-to-return.}{%
+\subsection{The member WOULD have to apply for reentry and their status would be voted on by all tenured league members. If the owners departure is temporary (ex. They have an emergency and can't complete a season) then a temporary owner may take over for the persons team until they are ready to return.}\label{the-member-would-have-to-apply-for-reentry-and-their-status-would-be-voted-on-by-all-tenured-league-members.-if-the-owners-departure-is-temporary-ex.-they-have-an-emergency-and-cant-complete-a-season-then-a-temporary-owner-may-take-over-for-the-persons-team-until-they-are-ready-to-return.}}
+
+\hypertarget{unless-otherwise-specified-a-temporary-owner-would-become-permanent-if-during-this-period-they-manage-a-single-team-for-a-complete-season-finish-the-season-started-by-the-tenured-owner-then-complete-the-next-season-draft-through-championship.-in-this-instance-the-temporary-owner-would-be-up-for-a-full-league-membership-vote-and-the-tenured-member-would-be-at-the-top-of-the-waiting-list-but-would-be-required-to-wait-until-an-owner-vacates-their-spot-in-tsu.}{%
+\subsection{Unless otherwise specified, a ``temporary'' owner would become permanent if during this period, they manage a single team for a complete season (finish the season started by the tenured owner, then complete the next season, draft through championship). In this instance the ``temporary'' owner would be up for a full league membership vote and the ``tenured'' member would be at the top of the waiting list but would be required to wait until an owner vacates their spot in TSU.}\label{unless-otherwise-specified-a-temporary-owner-would-become-permanent-if-during-this-period-they-manage-a-single-team-for-a-complete-season-finish-the-season-started-by-the-tenured-owner-then-complete-the-next-season-draft-through-championship.-in-this-instance-the-temporary-owner-would-be-up-for-a-full-league-membership-vote-and-the-tenured-member-would-be-at-the-top-of-the-waiting-list-but-would-be-required-to-wait-until-an-owner-vacates-their-spot-in-tsu.}}
+
+\hypertarget{it-will-be-up-to-the-departing-member-and-the-replacement-owner-to-make-arrangements-related-to-entry-fees-winnings-and-potential-trophy-branding.-the-commissioner-will-act-is-a-mediator-for-these-discussions-and-must-be-notified-of-the-final-arrangements-made-by-the-owners.}{%
+\subsection{It will be up to the departing member and the replacement owner to make arrangements related to entry fees, winnings and potential trophy branding. The Commissioner will act is a mediator for these discussions and must be notified of the final arrangements made by the owners.}\label{it-will-be-up-to-the-departing-member-and-the-replacement-owner-to-make-arrangements-related-to-entry-fees-winnings-and-potential-trophy-branding.-the-commissioner-will-act-is-a-mediator-for-these-discussions-and-must-be-notified-of-the-final-arrangements-made-by-the-owners.}}
 
 \hypertarget{appendix-appendix}{%
 \appendix}
@@ -755,9 +1137,13 @@ coming soon
 \hypertarget{the-champions}{%
 \chapter{The Champions}\label{the-champions}}
 
-\hypertarget{section}{%
-\subsection*{\texorpdfstring{\textbf{2019} - \emph{???}}{2019 - ???}}\label{section}}
-\addcontentsline{toc}{subsection}{\textbf{2019} - \emph{???}}
+\hypertarget{jesse-piburn}{%
+\subsection*{\texorpdfstring{\textbf{2020} - Jesse Piburn (👀)}{2020 - Jesse Piburn (👀)}}\label{jesse-piburn}}
+\addcontentsline{toc}{subsection}{\textbf{2020} - Jesse Piburn (👀)}
+
+\hypertarget{jesse-piburn-1}{%
+\subsection*{\texorpdfstring{\textbf{2019} - Jesse Piburn}{2019 - Jesse Piburn}}\label{jesse-piburn-1}}
+\addcontentsline{toc}{subsection}{\textbf{2019} - Jesse Piburn}
 
 \hypertarget{chappy}{%
 \subsection*{\texorpdfstring{\textbf{2018} - Chappy}{2018 - Chappy}}\label{chappy}}
@@ -771,12 +1157,12 @@ coming soon
 \subsection*{\texorpdfstring{\textbf{2016} - Noah Newport}{2016 - Noah Newport}}\label{noah-newport}}
 \addcontentsline{toc}{subsection}{\textbf{2016} - Noah Newport}
 
-\hypertarget{jesse-piburn}{%
-\subsection*{\texorpdfstring{\textbf{2015} - Jesse Piburn}{2015 - Jesse Piburn}}\label{jesse-piburn}}
+\hypertarget{jesse-piburn-2}{%
+\subsection*{\texorpdfstring{\textbf{2015} - Jesse Piburn}{2015 - Jesse Piburn}}\label{jesse-piburn-2}}
 \addcontentsline{toc}{subsection}{\textbf{2015} - Jesse Piburn}
 
-\hypertarget{jesse-piburn-1}{%
-\subsection*{\texorpdfstring{\textbf{2014} - Jesse Piburn}{2014 - Jesse Piburn}}\label{jesse-piburn-1}}
+\hypertarget{jesse-piburn-3}{%
+\subsection*{\texorpdfstring{\textbf{2014} - Jesse Piburn}{2014 - Jesse Piburn}}\label{jesse-piburn-3}}
 \addcontentsline{toc}{subsection}{\textbf{2014} - Jesse Piburn}
 
 \hypertarget{miles-collins-2}{%
@@ -790,9 +1176,167 @@ coming soon
 \hypertarget{amendments}{%
 \chapter{Amendments}\label{amendments}}
 
-We have finished a nice book.
+\hypertarget{recorded-amendments}{%
+\section{2020 Recorded Amendments}\label{recorded-amendments}}
 
-\bibliography{book.bib,packages.bib}
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Increased entry fee to \$215
+\item
+  Modified defensive scoring (added base 5, and -0.25 per point allowed)
+\item
+  Modified playoff structure to ensure teams making round 2 of the playoffs can not enter The Randy Bowl
+\item
+  Added 1 additional IR spot for this year only
+\end{enumerate}
 
+\hypertarget{recorded-amendments-1}{%
+\section{2019 Recorded Amendments}\label{recorded-amendments-1}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Change to full auction draft
+\item
+  Update defense and special teams scoring
+\item
+  Christian de Caestecker replaced Colby Mattie
+\item
+  Update the league fees to \$140
+\item
+  Britt Elmore took over sole managership from the previously co-mangaged team with Christian Wiberley
+\item
+  Update membership rules to never allow a fan of Alabama, Florida or Ohio State into the league
+\item
+  Update roster requirements to add conditions for owners who are acting in the best interest of their team by not starting a full 9 man roster
+\end{enumerate}
+
+\hypertarget{recorded-amendments-2}{%
+\section{2018 Recorded Amendments}\label{recorded-amendments-2}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Change to trial run for hybrid auction draft
+\item
+  Penalty for failing to draft complete and valid roster
+\item
+  Accidental drop rule
+\item
+  Update the league fees to \$130
+\item
+  Record understood rule that all members are responsible for 1/12 of draft cost each year
+\item
+  Cleanup of end of season tie language
+\item
+  Christian de Caestecker replaced by Jordan Rudolph as alternate Senior Council member
+\item
+  Christian de Caestecker replaced by Christian Wiberley \& Britt Elmore as one year co-managers in The Saturated Unicorn.
+\end{enumerate}
+
+\hypertarget{recorded-amendments-3}{%
+\section{2017 Recorded Amendments}\label{recorded-amendments-3}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Update the league fees to \$125
+\item
+  Add inactive status for tenured members
+\item
+  Update the end of season tie procedures
+\item
+  Add succession of Senior Council for voting
+\item
+  No owner changes
+\end{enumerate}
+
+\hypertarget{recorded-amendments-4}{%
+\section{2016 Recorded Amendments}\label{recorded-amendments-4}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Change league size to 12 members (Mathew and Jordan added)
+\item
+  Jon Hawker replaces Jeff Giles
+\item
+  Update payouts to reflect the two extra members
+\item
+  Detailed plan for end of season ties (season record ties)
+\item
+  Addition of alternate Senior Council member (Christian)
+\end{enumerate}
+
+\hypertarget{recorded-amendments-5}{%
+\section{2015 Recorded Amendments}\label{recorded-amendments-5}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Updated playoff structure
+\item
+  Increase entry fee to \$110 + \$10
+\item
+  FAAB for Free Agency
+\item
+  Volunteer for The Randy -- The Hunger Games Clause
+\item
+  Institute time limit between draft picks
+\item
+  Impose ban on players that miss two consecutive drafts
+\end{enumerate}
+
+\hypertarget{recorded-amendments-6}{%
+\section{2014 Recorded Amendments}\label{recorded-amendments-6}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  Increase entry fee from \$50.00 to \$75.00 (external)
+\item
+  Define the parameters of collusion
+\item
+  Increase the veto limit from 4 votes to 6 votes
+\item
+  Change to an offline draft
+\item
+  Put a 1 season voting restriction on new members
+\item
+  End season with week 16 of the NFL season
+\item
+  2nd round of playoffs becomes a 1 week single elimination game
+\item
+  Create rule disallowing short term trade backs
+\item
+  Outline the differences for external vs.~internal rule changes and create required vote counts for each
+\item
+  Change 1.5 point bonus for 50+ yard td reception or rush to 0. (Standard Scoring)
+\item
+  Eliminate divisions
+\item
+  Play each team at least once
+\item
+  Implement the Colby winning system for a 1 year trial period
+\item
+  Waiver position is a tradable commodity
+\item
+  TSU playoffs end at week 16 -- The Peyton Manning Rule
+\item
+  Set draft order by selecting playing cards
+\end{enumerate}
+
+\hypertarget{draft-results}{%
+\chapter{2020 Draft Results}\label{draft-results}}
+
+  \bibliography{book.bib,packages.bib}
 
 \end{document}

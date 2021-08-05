@@ -23,10 +23,10 @@ payouts <- tribble(
   "3rd Place",                               200,
   "1v2 Showdown",                            50,
   "Weekly High Score (regular season)",      50,
-  "Top Week on the Season (including playoffs and week 17)", 50,
+  "Top Week on the Season (including playoffs and week 18)", 50,
   "Most Points For (regular season)",        60,
   "Most Points Against (regular season)",    20,
-  "Week 17 High Score",                      100
+  "Week 18 High Score",                      100
 ) %>%
   mutate(
     total_amount = if_else(payout == "Weekly High Score (regular season)", amount * 12, amount)
@@ -41,9 +41,9 @@ faab_budget <- 200
 
 
 # draft info --------------------------------------------------------------
-draft_day <- "Saturday, September 5th"
-draft_location <- "Zoom"
-draft_host <- 'Yourself Bitch'
+draft_day <- "TBD when in Costa Rica"
+draft_location <- "5th floor of a Mansion in the Rain Forest"
+draft_host <- 'The Beautiful Country of Costa Rica'
 auction_budget <- 200
 min_bid <- 1
 
