@@ -14,6 +14,16 @@
 
 ### Limitations will not be placed on the “drop player” status for any players.
 
+### Taysom Hill Rule: A players eligibilty to fill a position in the starting lineup is determined by a players position as designated by the ESPN software at the time their game's kickoff, not at the time in which said player was placed in that spot.
+
+#### Any points accured by a player deemed ineligable will not be counted towards that teams weekly or season point totals. 
+    
+#### For example, weeks 1-3 Taysom Hill is designated a TE in ESPN software and is playing TE for the Saints. Five days before Week 4's game the Saints announce Taysom Hill  as the starting QB. Hill however is still listed by ESPN as a TE, so you pick up  Taysom Hill from Free Agency and place him in the TE spot in your starting lineup. If at anytime between then and the kickoff of the next game Taysom Hill plays in ESPN changes his listed position in their software to QB, your TE spot is no longer considered valid. If however, ESPN fails to change Hill's position from TE to QB and Hill is still listed as a TE at kickoff in the ESPN software, the spot is considered valid for that week and for any other week going forward until his listed position in ESPN software changes.
+     
+     
+#### As a rule of thumb, if 5 minutes before kickoff you could bench a player, save your lineup, and then place that benched player back into the same spot in your starting lineup, that player would be considered valid.
+
+
 ```{r, echo=FALSE, out.width= "50%"}
 lineup %>%
   knitr::kable(

@@ -29,6 +29,8 @@ Defense / Special Teams,Fumble Return TD,6
 Defense / Special Teams,Kickoff Return TD,6
 Defense / Special Teams,Punt Return TD,6
 Defense / Special Teams,Blocked Punt or FG return for TD,6
+Defense / Special Teams,Each Stuff,0.5
+Defense / Special Teams,Each Pass Defended,0.5
 Miscellaneous,Kickoff Return TD,6
 Miscellaneous,Punt Return TD,6
 Miscellaneous,Fumble Recovered for TD,6

@@ -14,7 +14,7 @@
 
 ### The cost of entry for the `r current_season` season will be $`r entry_fee`
     
-#### Week 17 has no impact on the championship as it is played in weeks 15 & 16
+#### Week 18 has no impact on the championship as it is played in weeks 16 & 17
     
 ### All monies must be paid before the draft order is set
 

@@ -1,5 +1,11 @@
 # Amendments
 
+## 2021 Recorded Amendments
+1. Added Taysom Hill Rule
+1. Modified defensive scoring (added 0.5 per stuff, 0.5 per passes defended)
+1. To accommodate the addition of week 18, the regular season was extended by one week. Playoffs remained the same, but shifted one week.
+
+
 ## 2020 Recorded Amendments
 1. Increased entry fee to $215
 1. Modified defensive scoring (added base 5, and -0.25 per point allowed)
