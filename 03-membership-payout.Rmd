@@ -45,7 +45,8 @@ payouts %>%
   ) %>%
   knitr::kable(
     caption = "League Payouts",
-    booktabs = TRUE
+    booktabs = TRUE,
+    format.args = list(big.mark = ",")
     )
 
 ```

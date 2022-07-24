@@ -6,8 +6,8 @@
 ]{book}
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
-\usepackage{ifxetex,ifluatex}
-\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+\usepackage{iftex}
+\ifPDFTeX
   \usepackage[T1]{fontenc}
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
@@ -33,14 +33,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdftitle={The Constitution of The Saturated Unicorn},
-  pdfauthor={Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn},
-  hidelinks,
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -69,15 +61,23 @@
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
 \usepackage{booktabs}
-\ifluatex
+\ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 \usepackage[]{natbib}
 \bibliographystyle{apalike}
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={The Constitution of The Saturated Unicorn},
+  pdfauthor={Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{The Constitution of The Saturated Unicorn}
 \author{Professed by the members of TSU, scribed by Noah Newport and Jesse Piburn}
-\date{2021-08-25}
+\date{2022-07-22}
 
 \begin{document}
 \maketitle
@@ -230,14 +230,14 @@
 \toprule
 name & seasons\\
 \midrule
-Jillian Newport & 10\\
-Eric White & 9\\
-Christian de Caestecker & 7\\
-Chappy & 7\\
-Jon Hawker & 6\\
+Jillian Newport & 11\\
+Eric White & 10\\
+Christian de Caestecker & 8\\
+Chappy & 8\\
+Mathew Stinnett & 7\\
 \addlinespace
-Mathew Stinnett & 6\\
-Britt Elmore & 4\\
+Britt Elmore & 5\\
+Karly Atchley & 1\\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -350,8 +350,8 @@ Britt Elmore & 4\\
 \hypertarget{dues-entry-fees}{%
 \section{Dues \& Entry Fees}\label{dues-entry-fees}}
 
-\hypertarget{the-cost-of-entry-for-the-2021-season-will-be-215}{%
-\subsection{The cost of entry for the 2021 season will be \$215}\label{the-cost-of-entry-for-the-2021-season-will-be-215}}
+\hypertarget{the-cost-of-entry-for-the-2022-season-will-be-225}{%
+\subsection{The cost of entry for the 2022 season will be \$225}\label{the-cost-of-entry-for-the-2022-season-will-be-225}}
 
 \hypertarget{week-18-has-no-impact-on-the-championship-as-it-is-played-in-weeks-16-17}{%
 \subsubsection{Week 18 has no impact on the championship as it is played in weeks 16 \& 17}\label{week-18-has-no-impact-on-the-championship-as-it-is-played-in-weeks-16-17}}
@@ -359,8 +359,8 @@ Britt Elmore & 4\\
 \hypertarget{all-monies-must-be-paid-before-the-draft-order-is-set}{%
 \subsection{All monies must be paid before the draft order is set}\label{all-monies-must-be-paid-before-the-draft-order-is-set}}
 
-\hypertarget{all-entries-must-be-paid-by-sept-12021}{%
-\subsubsection{All entries must be paid by Sept 1,2021}\label{all-entries-must-be-paid-by-sept-12021}}
+\hypertarget{all-entries-must-be-paid-by-before-the-start-of-the-draft}{%
+\subsubsection{All entries must be paid by before the start of the draft}\label{all-entries-must-be-paid-by-before-the-start-of-the-draft}}
 
 \hypertarget{if-monies-are-not-received-by-this-date-you-will-not-be-in-the-league.}{%
 \subsubsection{If monies are not received by this date you will not be in the league.}\label{if-monies-are-not-received-by-this-date-you-will-not-be-in-the-league.}}
@@ -383,8 +383,8 @@ Britt Elmore & 4\\
 \hypertarget{payout}{%
 \section{Payout}\label{payout}}
 
-\hypertarget{the-total-prize-money-for-the-2021-season-will-be-2580-and-will-be-distributed-as-follows}{%
-\subsection{The total prize money for the 2021 season will be \$2580 and will be distributed as follows}\label{the-total-prize-money-for-the-2021-season-will-be-2580-and-will-be-distributed-as-follows}}
+\hypertarget{the-total-prize-money-for-the-2022-season-will-be-2700-and-will-be-distributed-as-follows}{%
+\subsection{The total prize money for the 2022 season will be \$2700 and will be distributed as follows}\label{the-total-prize-money-for-the-2022-season-will-be-2700-and-will-be-distributed-as-follows}}
 
 \begin{table}
 
@@ -394,14 +394,15 @@ Britt Elmore & 4\\
 \toprule
 payout & amount\\
 \midrule
-1st Place & 1000\\
+1st Place & 1,000\\
 2nd Place & 500\\
 3rd Place & 200\\
+4th Place & 80\\
 1v2 Showdown & 50\\
-Weekly High Score (regular season) & 50\\
 \addlinespace
+Weekly High Score (regular season) & 50\\
 Top Week on the Season (including playoffs and week 18) & 50\\
-Most Points For (regular season) & 60\\
+Most Points For (regular season) & 50\\
 Most Points Against (regular season) & 20\\
 Week 18 High Score & 100\\
 \bottomrule
@@ -554,14 +555,14 @@ Kicker & 1\\
 \hypertarget{draft-day-location}{%
 \section{Draft Day \& Location}\label{draft-day-location}}
 
-\hypertarget{the-2021-draft-will-be-held-on-tbd-when-in-costa-rica}{%
-\subsection{The 2021 draft will be held on TBD when in Costa Rica}\label{the-2021-draft-will-be-held-on-tbd-when-in-costa-rica}}
+\hypertarget{the-2022-draft-will-be-held-on-aug-27th}{%
+\subsection{The 2022 draft will be held on Aug 27th}\label{the-2022-draft-will-be-held-on-aug-27th}}
 
-\hypertarget{the-location-of-the-2021-draft-is-5th-floor-of-a-mansion-in-the-rain-forest}{%
-\subsection{The location of the 2021 draft is 5th floor of a Mansion in the Rain Forest}\label{the-location-of-the-2021-draft-is-5th-floor-of-a-mansion-in-the-rain-forest}}
+\hypertarget{the-location-of-the-2022-draft-is-somewhere-on-a-lake-in-georgia}{%
+\subsection{The location of the 2022 draft is Somewhere on a Lake in Georgia}\label{the-location-of-the-2022-draft-is-somewhere-on-a-lake-in-georgia}}
 
-\hypertarget{the-beautiful-country-of-costa-rica-is-the-2021-draft-host.}{%
-\subsubsection{The Beautiful Country of Costa Rica is the 2021 draft host.}\label{the-beautiful-country-of-costa-rica-is-the-2021-draft-host.}}
+\hypertarget{eric-is-the-2022-draft-host.}{%
+\subsubsection{Eric is the 2022 draft host.}\label{eric-is-the-2022-draft-host.}}
 
 \hypertarget{the-commissioner-will-be-responsible-for-purchasing-and-providing-the-official-draft-board-and-stickers-for-each-seasons-draft.}{%
 \subsection{The commissioner will be responsible for purchasing and providing the official draft board and stickers for each season's draft.}\label{the-commissioner-will-be-responsible-for-purchasing-and-providing-the-official-draft-board-and-stickers-for-each-seasons-draft.}}
@@ -650,8 +651,8 @@ Kicker & 1\\
 \hypertarget{failure-to-abide-by-these-requirements-of-the-draft-will-result-in-a-10-faab-penalty-for-each-position-that-is-not-drafted.}{%
 \subsection{Failure to abide by these requirements of the draft will result in a \$10 FAAB penalty for each position that is not drafted.}\label{failure-to-abide-by-these-requirements-of-the-draft-will-result-in-a-10-faab-penalty-for-each-position-that-is-not-drafted.}}
 
-\hypertarget{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2021-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2021-season-the-maximum-fine-would-be-80-faab}{%
-\subsubsection{Ex. - If Jesse fails to draft a kicker, he will be penalized \$10 FAAB before the start of week 1 of the 2021 season. If he fails to draft a kicker and a quarterback he will be penalized \$20 FAAB for the 2021 season, the maximum fine would be \$80 FAAB}\label{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2021-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2021-season-the-maximum-fine-would-be-80-faab}}
+\hypertarget{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2022-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2022-season-the-maximum-fine-would-be-80-faab}{%
+\subsubsection{Ex. - If Jesse fails to draft a kicker, he will be penalized \$10 FAAB before the start of week 1 of the 2022 season. If he fails to draft a kicker and a quarterback he will be penalized \$20 FAAB for the 2022 season, the maximum fine would be \$80 FAAB}\label{ex.---if-jesse-fails-to-draft-a-kicker-he-will-be-penalized-10-faab-before-the-start-of-week-1-of-the-2022-season.-if-he-fails-to-draft-a-kicker-and-a-quarterback-he-will-be-penalized-20-faab-for-the-2022-season-the-maximum-fine-would-be-80-faab}}
 
 \hypertarget{failing-to-be-present-at-the-mandatory-tsu-draft}{%
 \subsection{Failing to be present at the mandatory TSU draft}\label{failing-to-be-present-at-the-mandatory-tsu-draft}}
@@ -714,6 +715,8 @@ Kicker & 1\\
 
 \hypertarget{while-scoring-with-another-team-owners-mother-is-highly-encouraged-no-points-shall-be-awarded.}{%
 \subsection{While scoring with another team owner's mother is highly encouraged, no points shall be awarded.}\label{while-scoring-with-another-team-owners-mother-is-highly-encouraged-no-points-shall-be-awarded.}}
+
+\includegraphics{tsu-constitution_files/figure-latex/scoring-1.pdf}
 
 \hypertarget{ties}{%
 \chapter{Ties}\label{ties}}
@@ -873,8 +876,8 @@ Kicker & 1\\
 \hypertarget{winners-bracket}{%
 \section{Winner's Bracket}\label{winners-bracket}}
 
-\hypertarget{the-playoff-structure-for-the-2021-season-will-be-a-customized-system-with-the-winners-bracket-beginning-with-the-top-6-seeded-teams-in-the-league.}{%
-\subsection{The playoff structure for the 2021 season will be a customized system with the winner's bracket beginning with the top 6 seeded teams in the league.}\label{the-playoff-structure-for-the-2021-season-will-be-a-customized-system-with-the-winners-bracket-beginning-with-the-top-6-seeded-teams-in-the-league.}}
+\hypertarget{the-playoff-structure-for-the-2022-season-will-be-a-customized-system-with-the-winners-bracket-beginning-with-the-top-6-seeded-teams-in-the-league.}{%
+\subsection{The playoff structure for the 2022 season will be a customized system with the winner's bracket beginning with the top 6 seeded teams in the league.}\label{the-playoff-structure-for-the-2022-season-will-be-a-customized-system-with-the-winners-bracket-beginning-with-the-top-6-seeded-teams-in-the-league.}}
 
 \hypertarget{teams-will-first-be-ordered-on-overall-regular-season-record.}{%
 \subsection{Teams will first be ordered on overall regular season record.}\label{teams-will-first-be-ordered-on-overall-regular-season-record.}}
@@ -1149,6 +1152,10 @@ Kicker & 1\\
 \hypertarget{the-champions}{%
 \chapter{The Champions}\label{the-champions}}
 
+\hypertarget{chappy}{%
+\subsection*{\texorpdfstring{\textbf{2021} - Chappy}{2021 - Chappy}}\label{chappy}}
+\addcontentsline{toc}{subsection}{\textbf{2021} - Chappy}
+
 \hypertarget{jordan-rudolph}{%
 \subsection*{\texorpdfstring{\textbf{2020} - Jordan Rudolph}{2020 - Jordan Rudolph}}\label{jordan-rudolph}}
 \addcontentsline{toc}{subsection}{\textbf{2020} - Jordan Rudolph}
@@ -1157,8 +1164,8 @@ Kicker & 1\\
 \subsection*{\texorpdfstring{\textbf{2019} - Jesse Piburn}{2019 - Jesse Piburn}}\label{jesse-piburn}}
 \addcontentsline{toc}{subsection}{\textbf{2019} - Jesse Piburn}
 
-\hypertarget{chappy}{%
-\subsection*{\texorpdfstring{\textbf{2018} - Chappy}{2018 - Chappy}}\label{chappy}}
+\hypertarget{chappy-1}{%
+\subsection*{\texorpdfstring{\textbf{2018} - Chappy}{2018 - Chappy}}\label{chappy-1}}
 \addcontentsline{toc}{subsection}{\textbf{2018} - Chappy}
 
 \hypertarget{miles-collins-1}{%

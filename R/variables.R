@@ -12,25 +12,28 @@ current_season <- lubridate::year(current_date)
 
 
 # fees and payouts --------------------------------------------------------
-entry_fee <- 215
+entry_fee <- 225
 entry_total <- entry_fee * league_size
-entry_fee_due_date <- paste0("Sept 1,", current_season)
+entry_fee_due_date <- "before the start of the draft"
 
 payouts <- tribble(
   ~payout,             ~amount,
   "1st Place",                               1000,
   "2nd Place",                               500,
   "3rd Place",                               200,
+  "4th Place",                               80,
   "1v2 Showdown",                            50,
   "Weekly High Score (regular season)",      50,
   "Top Week on the Season (including playoffs and week 18)", 50,
-  "Most Points For (regular season)",        60,
+  "Most Points For (regular season)",        50,
   "Most Points Against (regular season)",    20,
   "Week 18 High Score",                      100
 ) %>%
   mutate(
-    total_amount = if_else(payout == "Weekly High Score (regular season)", amount * 12, amount)
+    total_amount = if_else(payout == "Weekly High Score (regular season)", amount * 13, amount)
   )
+
+if (entry_total != sum(payouts$total_amount)) stop("Entry Fee's don't add up to total spent")
 
 
 # roster ------------------------------------------------------------------
@@ -41,9 +44,9 @@ faab_budget <- 200
 
 
 # draft info --------------------------------------------------------------
-draft_day <- "TBD when in Costa Rica"
-draft_location <- "5th floor of a Mansion in the Rain Forest"
-draft_host <- 'The Beautiful Country of Costa Rica'
+draft_day <- "Aug 27th"
+draft_location <- "Somewhere on a Lake in Georgia"
+draft_host <- 'Eric'
 auction_budget <- 200
 min_bid <- 1
 
