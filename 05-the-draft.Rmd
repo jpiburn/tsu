@@ -41,7 +41,7 @@
 
 ##### For example, assuming an auction budget of $`r auction_budget`, a minimum bid of $`r min_bid`, and `r roster_spots` total roster spots, the most Chappy could ever pay for a player is $`r auction_budget - (min_bid * (roster_spots-1))`. This would leave enough for `r roster_spots - 1` $`r min_bid` bids. 
 
-### All teams must auction `r nrow(current_members)` players during the auction portion of the draft.
+### All teams must draft `r roster_spots` players during the draft.
 
 #### When a player is nominated for auction, the person who nominated the player automatically places a $`r min_bid` bid on the player.
 
