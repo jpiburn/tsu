@@ -55,12 +55,10 @@ min_bid <- 1
 members <- readr::read_csv("data-raw/member-info.csv")
 current_members <- filter(members, current_member == TRUE)
 
-current_commish <- "Noah Newport"
-lord_of_the_council <- "Jesse Piburn"
-senior_council_1 <- "Brack Brown"
-senior_council_2 <- "Miles Collins"
-senior_council_alt <- "Jordan Rudolph"
-
-
+current_commish <- "Jesse Piburn"
+lord_of_the_council <- "Brack Brown"
+senior_council_1 <- "Miles Collins"
+senior_council_2 <- "Jordan Rudolph"
+senior_council_alt <- "Britt Elmore"
 
 

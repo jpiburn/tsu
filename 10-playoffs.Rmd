@@ -12,7 +12,7 @@
 
 ## Overall Structure
 ```{r, out.width="90%", echo=FALSE}
-knitr::include_graphics("images/tsu-playoffs.png")
+knitr::include_graphics("images/tsu-playoffs-current.png")
 ```
 
 ## Winner's Bracket
@@ -49,10 +49,9 @@ knitr::include_graphics("images/tsu-playoffs.png")
 ### Playoffs – Round 2
 #### Round 2 of the playoffs (week 15) will be a single elimination game for all remaining seeds in the winner’s bracket. 
 
-#### Highest scoring loser in Round 2 of the playoffs (week 15) will move into the 3rd place matchup.
-##### If the two losing teams in Round 2 of the playoffs scored the same total points in week 15. The team with the highest playoff seeding will advance to the 3rd place matchup
+#### The winners of their Round 2 matchups will advance to play for 1st and 2nd overall
 
-#### The lowest scoring loser in Round 2 of the playoffs does not drop into the loser's bracket and is locked in at finishing 5th overall
+#### The losers of their Round 2 matchups will play against each other in Round 3 for 3rd and 4th overall
 
 
 ### Playoffs – Round 3 (Championship & 3rd place matchup)
@@ -63,8 +62,7 @@ knitr::include_graphics("images/tsu-playoffs.png")
 ##### The loser of the championship matchup will finish in 2nd place.
 
 #### The 3rd Place Matchup
-##### The 3rd place matchup will be against the highest scoring loser of Round 2 of the playoffs vs the team from the losers bracket with the highest cumulative total points for weeks 14 and 15.
-##### The team with the most cumulative points for week 16 and week 17 will be the winner and declared the 3rd place finisher.
+##### The 3rd place matchup will be against the two losers of Round 2. 
 ##### The loser of the 3rd place matchup will finish in 4th place.
 
 
@@ -72,9 +70,6 @@ knitr::include_graphics("images/tsu-playoffs.png")
 
 ## Loser's Bracket
 ### There are no head to head matchups in the loser’s bracket for weeks 14, 15, & 16. Teams in the loser’s bracket will be ranked by their cumulative points from weeks 14, 15, & 16, regardless of when they entered the loser’s bracket.
-
-
-### The team with the highest cumulative total points for weeks 14 and 15 will be promoted out of the loser's bracket to compete in weeks 16 and 17 for 3rd place overall 
 
 ### The 2 teams with the lowest total points in weeks 14, 15, and 16 compete in week 17 in The Randy Bowl. The loser of The Randy Bowl will contract The Randy.
 
